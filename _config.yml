@@ -1,0 +1,17 @@
+title: Luke Bemish
+email: lukebemish@lukebemish.dev
+description: >-
+  An undergraduate studying mathematics and biology with a concentration in neuroscience;
+  interested in applying math and computational modeling to probe and model neural systems.
+baseurl: ""
+url: "https://pages.lukebemish.dev"
+domain: "pages.lukebemish.dev"
+github_username: lukebemish
+show_downloads: false
+profile_image: "/assets/img/picture.png"
+
+
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
