@@ -1,5 +1,6 @@
 ---
 layout: home
+title: About Me
 ---
 
 Neuroscience, as a field, is fundamentally interdisciplinary. The discipline combines techiniques and knowledge from a slew of other fields, including psychology, biology, mathematics, and even physics. I believe that the goals of neuroscientific research are twofold: to gain a deep understanding of the brain and the processes involved, and to build the physical and computational tools needed to repair, modify, integrate, and even create neural circuits.
