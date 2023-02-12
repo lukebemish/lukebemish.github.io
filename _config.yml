@@ -8,8 +8,6 @@ url: "https://pages.lukebemish.dev"
 domain: "pages.lukebemish.dev"
 github_username: lukebemish
 show_downloads: false
-profile_image: "/assets/img/picture.png"
-
 
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:

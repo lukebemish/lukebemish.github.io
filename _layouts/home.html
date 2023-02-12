@@ -17,9 +17,15 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if site.profile_image%}
-          <p><img src="{{site.profile_image | relative_url}}" alt="Photograph of Luke Bemish" /></p>
-        {% endif %}
+        <p><picture>
+          <source srcset="/assets/img/picture1024.webp 1024w, /assets/img/picture512.webp 512w, /assets/img/picture256.webp 256w" type="image/webp">
+          <img
+            srcset="/assets/img/picture1024.png 1024w, /assets/img/picture512.png 512w, /assets/img/picture256.png 256w"
+            sizes="(max-width: 1000px) 100vw, 1000px"
+            src="/assets/img/picture256.png"
+            alt="Photograph of Luke Bemish"
+          >
+        </picture></p>
 
         {% include blurb.html %}
       </header>
