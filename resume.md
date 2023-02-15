@@ -60,7 +60,7 @@ Software experience:
 * Analog cirtuit modeling software LTSpice
 
 Hardware experience:
-* Microcontrollers and microprocessors including Raspberry Pi, Arguino, and BeagleBone Black
+* Microcontrollers and microprocessors including Raspberry Pi, Arduino, and BeagleBone Black
 * Oscilloscopes
 * Spectrum Analyzers
 * Fabrication technology including 3D printing, laser cutting, and soldering
