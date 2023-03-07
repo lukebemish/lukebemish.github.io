@@ -1,0 +1,31 @@
+---
+---
+
+@import "minimal";
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.anchor-wrapper {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    visibility: visible;
+}
+
+.anchor-wrapper .octicon {
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.anchor-wrapper:hover .octicon, .anchor-wrapper:focus .octicon {
+    visibility: visible;
+}
