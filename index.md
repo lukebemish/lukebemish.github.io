@@ -15,4 +15,4 @@ To build these tools and knowledge, I am interested in research accross the fiel
 
 ## Links
 
-### [Resume](resume.md)
+[Resume](resume.md)

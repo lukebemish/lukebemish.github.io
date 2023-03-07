@@ -6,8 +6,9 @@ layout: default
 
 ## Research Experience
 
-### CURI Summer Researcher, *St Olaf College*
-##### Summer 2022
+### CURI Summer Researcher
+
+**Summer 2022** - *St Olaf College*
 
 Explored the presence of neural responses to magnetic stimuli in the retina.
 
@@ -17,8 +18,9 @@ Designed a data pipeline to process neural spike data recorded from a multi elec
 
 ---
 
-### Summer Intern at Air Force Research Labs, *Cold Atom Lab, Kirtland AFB, NM*
-##### Summer 2020-2021
+### Summer Intern at Air Force Research Labs
+
+**Summer 2020-2021** - *Cold Atom Lab, Kirtland AFB, NM*
 
 Simulated, built, and tested a high-current op-amp power supply for a cold atom system.
 
@@ -26,8 +28,9 @@ Developed and implemented a type of Bayesian optimization algorithm to more effi
 
 ---
 
-### Research Science Institute, *Center for Excellence in Education*
-##### July 2020
+### Research Science Institute
+
+**July 2020** - *Center for Excellence in Education*
 
 Designed a computational approach for Foldiak's algorithm, an alternative approach to categorization using neural-inspired unguided learning, for use without prior knowledge of the probabilities of features.
 
@@ -36,7 +39,8 @@ Designed a computational approach for Foldiak's algorithm, an alternative approa
 ## Education
 
 ### St Olaf College
-##### Fall 2021 - Present
+
+**Fall 2021 - Present**
 
 Currently pursuing a Bachelor of Arts in Mathematics and Biology, with a concentration in Neuroscience. Coursework includes Organic Chemistry, Linear Algebra, Cellular Biology, and Abstract Algebra; Currently taking Real Analysis and a second semester of Organic Chemistry.
 
@@ -52,14 +56,14 @@ Took Discrete Mathematics and Introductory Differential Equations through dual e
 
 ## Skills
 
-Software experience:
+### Software
 * Programming languages including C, C++, R, Python, Julia, Java, and Matlab
 * Machine learning libraries Tensorflow and Keras
 * Neural spike sorting tools Offline Sorter and Kilosort
 * CAD software including FreeCAD and Autodesk Fusion
 * Analog cirtuit modeling software LTSpice
 
-Hardware experience:
+### Hardware
 * Microcontrollers and microprocessors including Raspberry Pi, Arduino, and BeagleBone Black
 * Oscilloscopes
 * Spectrum Analyzers

@@ -25,7 +25,11 @@
       </header>
       <section>
 
-      {{ content }}
+      {% capture anchor_body %}
+          {% octicon link height:16 %}
+      {% endcapture %}
+
+      {% include anchor_headings.html html=content anchorBody=anchor_body anchorAttrs='class="anchor-wrapper" aria-hidden="true"' beforeHeading=true %}
 
       </section>
       {% if site.github.is_project_page %}
