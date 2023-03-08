@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The "What", "Why", and "How" of Version Control Software
+title: 'Version Control Software: What, Why, and How'
 author: Luke Bemish
 ---
 
