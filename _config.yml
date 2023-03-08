@@ -9,6 +9,7 @@ domain: "lukebemish.dev"
 github_username: lukebemish
 repository: lukebemish/lukebemish.github.io
 show_downloads: false
+auhtor: Luke Bemish
 
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
