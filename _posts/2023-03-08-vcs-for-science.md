@@ -4,7 +4,7 @@ title: The "What", "Why", and "How" of Version Control Software
 author: Luke Bemish
 ---
 
-Whether a student or researcher, while developing tools for data analysis, experiment control, modeling, or any of the other many situations where software is necessary for research, one will inevitably need to make multiple iterations of code. Tools known as version control software, or VCS, can help keep track of the iterative development of a tool over time. Version control software allows researchers to share both the original iteration of software as used in a publication, alongside any further improvements or changes made to the software since publication.
+Whether a student or researcher, one will inevitably need to make multiple iterations of code while developing tools for data analysis, experiment control, modeling, or any of the other many situations where software is necessary for research. Tools known as version control software, or VCS, can help keep track of the iterative development of a tool over time. Version control software allows researchers to share both the original iteration of software as used in a publication, alongside any further improvements or changes made to the software since publication.
 
 
 ## Why use version control?
