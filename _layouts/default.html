@@ -46,10 +46,10 @@
 
       {% capture htmlcontent %}
       <section>
-          {{content}}
+        {{content}}
         {%- if page.homepage and site.posts.size > 0 -%}
           {%- if page.list_title -%}
-          <h2 class="post-list-heading">{{ page.list_title }}</h2>
+          <h2 id="posts" class="post-list-heading">{{ page.list_title }}</h2>
           {%- endif -%}
           <ul class="post-list">
           {%- for post in site.posts -%}
