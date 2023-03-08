@@ -21,6 +21,12 @@
     visibility: visible;
 }
 
+
+a:hover, a:focus {
+    color:rgb(0, 75, 112);
+    font-weight: inherit;
+}
+
 .anchor-wrapper .octicon {
     vertical-align: middle;
     visibility: hidden;
