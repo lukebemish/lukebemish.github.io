@@ -7,32 +7,55 @@ layout: default
 ## Research Experience
 
 ### CURI Summer Researcher
+**Summer 2024 – Spring 2025** — *St. Olaf College* — Mechanisms of auditory eavesdropping in *Ormia ochracea*, a parasitoid fly
 
-**Summer 2022** - *St Olaf College*
+Investigated how flies adapt to changes in host song patterns through behavioral experiments comparing different populations
 
-Explored the presence of neural responses to magnetic stimuli in the retina.
+Recorded from auditory neurons and conducted behavioral experiments to determine what information flies extract from host cricket song patterns
 
-Compared approaches from information theory to classical approaches for quantifying neural response in retinal ganglion cells.
+Collaborated with other students to conduct research on and maintain several fly populations
 
-Designed a data pipeline to process neural spike data recorded from a multi electrode array and characterize its response to a known stimulus.
+---
+
+### Summer Undergraduate Researcher
+
+**Summer 2023** — *St. Olaf College* — Dynamics of Costa Rican singing mouse song structure
+
+Characterized differences in note timing between social and solitary contexts
+
+Built a low-parameter model of note timings
+
+Investigated social-context-dependent sources of variance in song length
+
+---
+
+### CURI Summer Researcher
+
+**Summer 2022** — *St. Olaf College* — Potential retinal mechanisms for magnetoreception in birds and turtles
+
+Analyzed neural data recorded from a multi-electrode array for which we were unsure of how our information of interest may have been encoded
+
+Located and mitigated sources of electromagnetic noise in our experimental setup
+
+Assembled a data pipeline capable of analyzing the large amounts of neural data collected
 
 ---
 
 ### Summer Intern at Air Force Research Labs
 
-**Summer 2020-2021** - *Cold Atom Lab, Kirtland AFB, NM*
+**Summer 2020-2021** — *Cold Atom Lab, Kirtland AFB, NM*
 
-Simulated, built, and tested a high-current op-amp power supply for a cold atom system.
+Simulated, built, and tested a high-current op-amp power supply for a cold atom system
 
-Developed and implemented a type of Bayesian optimization algorithm to more efficiently cool atoms in an atomic physics experiment.
+Developed and implemented a type of Bayesian optimization algorithm to more efficiently cool atoms in an atomic physics experiment
 
 ---
 
 ### Research Science Institute
 
-**July 2020** - *Center for Excellence in Education*
+**July 2020** — *Center for Excellence in Education*
 
-Designed a computational approach for Foldiak's algorithm, an alternative approach to categorization using neural-inspired unguided learning, for use without prior knowledge of the probabilities of features.
+Designed a computational approach for Foldiak's algorithm, an alternative approach to categorization using neural-inspired unguided learning, for use without prior knowledge of the probabilities of features
 
 ---
 
@@ -40,37 +63,24 @@ Designed a computational approach for Foldiak's algorithm, an alternative approa
 
 ### St Olaf College
 
-**Fall 2021 - Present**
+**Fall 2021 — Present**
 
-Currently pursuing a Bachelor of Arts in Mathematics and Biology, with a concentration in Neuroscience. Coursework includes Organic Chemistry, Linear Algebra, Cellular Biology, and Abstract Algebra; Currently taking Real Analysis and a second semester of Organic Chemistry.
-
----
-
-### Other Coursework
-
-Secondary school coursework included two years each of biology, chemistry, and physics, one year of geology, and mathmatics through multivariate calculus.
-
-Took Discrete Mathematics and Introductory Differential Equations through dual enrollment at the University of Colorado, Colorado Springs.
+Currently pursuing a Bachelor of Arts in Mathematics and Biology. Coursework includes Dynamical Systems, Cellular and Molecular Neuroscience, and Topology
 
 ---
 
 ## Skills
 
-### Software
-* Programming languages including C, C++, R, Python, Julia, Java, and Matlab
-* Machine learning libraries Tensorflow and Keras
-* Neural spike sorting tools Offline Sorter and Kilosort
-* CAD software including FreeCAD and Autodesk Fusion
-* Analog cirtuit modeling software LTSpice
-
-### Hardware
-* Microcontrollers and microprocessors including Raspberry Pi, Arduino, and BeagleBone Black
-* Oscilloscopes
-* Spectrum Analyzers
+### Laboratory
+* Electrophysiology (extracellular glass electrode and multi-electrode array)
+* Dissection (reptilian retina, fly)
+* Oscilloscope
+* Spectrum analyzer
 * Fabrication technology including 3D printing, laser cutting, and soldering
 
----
-
-## Other Interests
-
-An avid rock climber, photographer, and birdwatcher, I enjoy camping, hiking, and cross country skiing.
+### Computing
+* Neural spike sorting (Offline Sorter, Kilosort)
+* Data analysis and plotting (proficient with Julia, Python, MATLAB, Java, R, C)
+* Software development (contributor and maintainer for several open-source projects)
+* Microcontrollers and microprocessors (Raspberry Pi, Arduino, BeagleBone Black)
+* CAD software including FreeCAD and Autodesk Fusion
