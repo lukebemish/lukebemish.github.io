@@ -46,7 +46,7 @@ Assembled a data pipeline capable of analyzing the large amounts of neural data 
 
 ### Summer Intern at Air Force Research Labs
 
-**Summer 2020-2021** — *Cold Atom Lab, Kirtland AFB, NM*
+**Summer 2020 - 2021** — *Cold Atom Lab, Kirtland AFB, NM*
 
 Simulated, built, and tested a high-current op-amp power supply for a cold atom system
 
