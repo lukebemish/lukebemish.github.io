@@ -7,7 +7,7 @@ layout: default
 ## Research Experience
 
 ### CURI Summer Researcher
-**Summer 2024 – Spring 2025** — *St. Olaf College*
+**Summer 2024 – Spring 2025** — *St. Olaf College*<br/>
 Mechanisms of auditory eavesdropping in *Ormia ochracea*, a parasitoid fly
 
 Investigated how flies adapt to changes in host song patterns through behavioral experiments comparing different populations
@@ -20,7 +20,7 @@ Collaborated with other students to conduct research on and maintain several fly
 
 ### Summer Undergraduate Researcher
 
-**Summer 2023** — *St. Olaf College*
+**Summer 2023** — *St. Olaf College*<br/>
 Dynamics of Costa Rican singing mouse song structure
 
 Characterized differences in note timing between social and solitary contexts
@@ -33,7 +33,7 @@ Investigated social-context-dependent sources of variance in song length
 
 ### CURI Summer Researcher
 
-**Summer 2022** — *St. Olaf College*
+**Summer 2022** — *St. Olaf College*<br/>
 Potential retinal mechanisms for magnetoreception in birds and turtles
 
 Analyzed neural data recorded from a multi-electrode array for which we were unsure of how our information of interest may have been encoded
