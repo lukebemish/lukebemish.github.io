@@ -1,8 +1,7 @@
 title: Luke Bemish
 email: lukebemish@lukebemish.dev
 description: >-
-  An undergraduate studying mathematics and biology with a concentration in neuroscience;
-  interested in systems neuroscience and dynamical systems.
+  A graduate student interested in systems neuroscience and dynamical systems.
 baseurl: ""
 url: "https://lukebemish.dev"
 domain: "lukebemish.dev"
@@ -17,3 +16,4 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-octicons
+  - jekyll-gfm-admonitions
