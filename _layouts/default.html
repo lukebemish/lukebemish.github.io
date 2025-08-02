@@ -18,6 +18,7 @@
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
         {% if page.homepage %}
+          {% if false %}
           <p><picture>
             <source
               srcset="/assets/img/logo/picture1024.webp 1024w, /assets/img/logo/picture512.webp 512w, /assets/img/logo/picture256.webp 256w"
@@ -33,8 +34,11 @@
               style="aspect-ratio: 1/1"
             >
           </picture></p>
+          {% endif %}
         {% elsif site.logo %}
+          {% if false %}
           <p><img src="{{site.logo | relative_url}}" alt="Logo" /></p>
+          {% endif %}
         {% endif %}
 
         {% include blurb.html %}
