@@ -21,6 +21,25 @@
     visibility: visible;
 }
 
+.wrapper {
+  width:1060px;
+}
+
+section {
+  width:700px;
+}
+
+@media print, screen and (max-width: 960px) {
+
+  div.wrapper {
+    width: auto;
+  }
+
+  section {
+    width: auto;
+  }
+}
+
 
 a:hover, a:focus {
     color:rgb(0, 75, 112);
