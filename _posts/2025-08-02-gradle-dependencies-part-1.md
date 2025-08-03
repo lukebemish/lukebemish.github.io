@@ -156,7 +156,7 @@ Artifacts
 ```
 This tool does not print dependencies, but they are visible with `./gradlew dependencies` as before. Since published variants are really just consumable configurations, cross-project dependencies within a build and remote dependencies act very nearly the same.
 
-## Attribute selection
+## Attributes and variant selection
 
 So how does Gradle pick which variant of a component to resolve to? Well, as we saw at the end of the last section, each variant declares a set of _attributes_; these are key-value pairs that tell Gradle what sort of stuff a variant contains. For instance, the `org.gradle.usage` tells gradle when a variant can be used, with `java-api` indicating a variant meant to be compiled against (such as `apiElements` above), or `java-runtime` indicating a variant meant to be on the runtime classpath (such as `runtimeElements`, the runtime equivalent to `apiElements`). Each resolvable configuration has its own set of attributes. We can run `./gradlew resolvableConfigurations` to see these; for instance, from `compileClasspath`:
 ```
