@@ -217,7 +217,7 @@ Here, we tell the `runtimeClasspath` configuration to look for variants with `sh
 
 ## Capabilities
 
-Using a separate variant with different attributes is great for a sources jar, or javadoc, where the artifact in question has a different _kind_ of stuff, but the stuff really still, as it were, belongs to the same thing, but it's not such a good approach for situations where the artifact contains a different _kind_ of stuff in some sense (but is still closely enough related to the rest of your publication to go in the same component).
+Using a separate variant with different attributes is great for a sources jar, or javadoc, where the artifact in question has a different _kind_ of stuff, but the stuff really still, as it were, belongs to the same thing, but it's not such a good approach for situations where the artifact contains different stuff altogether in some sense (but is still closely enough related to the rest of your publication to go in the same component).
 
 Let's say, in addition to the main API of `gizmo:gadget`, we have a separate artifact in the same component implementing some service from `gadget` to support another library, `baz`. Attributes aren't really a good tool for expressing this. Attributes are generally attached to the thing doing the consuming (the configuration), not to a single dependency. What we really want is some way of talking about what sort of stuff a variant _contains_. Capabilities give us this tool, but to talk about them we'll need to revise our model of variant selection a bit.
 
