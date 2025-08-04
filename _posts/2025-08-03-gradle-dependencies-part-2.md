@@ -226,7 +226,9 @@ Each variant has a number of _capabilities_ attached to it. A capability looks l
 
 The `outgoingVariants` reports in this post in the last all list the capabilities of the variant; all the variants we've looked at so far have had a single capability, which is identical to the module component identifier. This is the implicit capability; unless you specify capabilities, all variants (and all dependencies) have a capability that is identical to their module component identifier.
 
-Consider the following dependency declarations:
+Though both are involved in satisfying the use cases Maven uses classifiers for, capabilities and attributes are quite different; they're two separate systems involved in variant selection. Attributes match things you might ask many different dependencies for during resolution; for instance, "I want libraries, useable at runtime, packaged as a `.jar`", or "I want javadoc documentation". Capabilities, on the other hand, let you require that the variant picked from a module contain a particular "thing". Where a module identifier encodes where a thing comes from, capabilities encode what it contains. For instance, Google used to have library called `google-collections`, published under `com.google.collections:google-collections`. This eventually became part of `guava` (at `com.google.guava:guava`); to encode that the new library has, in addition to its own "stuff", all the same "stuff" as the old `google-collections`, Google gave the module's variants the `com.google.collections:google-collections` capability (as well as manually giving them the `com.google.guava:guava` capability, which would no longer be implicit).
+
+Capabilities are the perfect tool for handling the earlier example of wanting to provide an extra artifact of a library implementing some extra functionality, but closely enough connected that it ought to be part of the same component. Consider the following dependency declarations:
 ```gradle
 dependencies {
     api("gizmo:gadget:2.0.0") {
