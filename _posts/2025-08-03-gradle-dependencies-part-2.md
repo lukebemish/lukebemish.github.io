@@ -197,7 +197,7 @@ def javaComponent =
 javaComponent.addVariantsFromConfiguration(
     configurations.fatJarElements) {}
 ```
-And that's that! Simply publishing `from components.java` will also publish the `fatjar` artifact attached to this variant, and since we didn't add any dependencies to the configuration, the published variant won't have any transitive dependencies either. This is basically what the `com.gradleup.shadow` plugin does to publish the shadow jar it generates.
+(And yes, that cast is [exactly how gradle recommends you do this](https://docs.gradle.org/9.0.0/userguide/publishing_customization.html#sec:adding-variants-to-existing-components)) and that's that! Simply publishing `from components.java` will also publish the `fatjar` artifact attached to this variant, and since we didn't add any dependencies to the configuration, the published variant won't have any transitive dependencies either. This is basically what the `com.gradleup.shadow` plugin does to publish the shadow jar it generates.
 
 To consume this variant from another project, we simply need a configuration that would select it by attribute matching. For instance:
 ```gradle
