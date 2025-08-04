@@ -21,15 +21,17 @@ dependencies {
 
 Within the `dependencies` block, you can specify dependencies in any number of different _configurations_. A configuration is somewhat similar to a scope in Maven; in effect, it specifies when the dependency should be used. For instance, the above example adds a dependency to the `api` configuration. This means that that dependency should be available on the classpath when building your code, should be available on the classpath when running your code, and should be available on the classpath when anything that depends on your project compiles or runs. In other words, the dependency is transitive. This is comparable to Maven's `compile` scope.
 
-> [!NOTE]
-> Unlike maven, which has a fixed collection of built-in scopes, Gradle's configurations have to be created; in this case, the `api` configuration is created by the built-in `java-library` plugin. This plugin creates [several other configurations](https://docs.gradle.org/9.0.0/userguide/dependency_configurations.html#sub:what-are-dependency-configurations) as well; for instance, `runtimeOnly` is available at runtime, including transitively, but not at compile-time.
+{% alert note %}
+Unlike maven, which has a fixed collection of built-in scopes, Gradle's configurations have to be created; in this case, the `api` configuration is created by the built-in `java-library` plugin. This plugin creates [several other configurations](https://docs.gradle.org/9.0.0/userguide/dependency_configurations.html#sub:what-are-dependency-configurations) as well; for instance, `runtimeOnly` is available at runtime, including transitively, but not at compile-time.
+{% endalert %}
 
 The remaining piece of the dependency declaration, `org.example.group:name:1.2.3`, tells Gradle where the dependency in question is located. The _group_ of the dependency is `org.example.group`; it declares the owner of a package in some sense, potentially grouping together similar packages from the same organization via subgroups. The _module name_ is `name`, and identifies a single module within that group; that module may have many versions.
 
 You may see the whole string `org.example.group:name:1.2.3` referred to as a "GAV"; this terminology (group ID/artifact ID/version) comes from Maven, where such a string can uniquely locate a file within a repository. I will avoid using this terminology, both because "artifact" has another meaning in Gradle and because, as we will see, unlike in Maven, in Gradle this string doesn't necessarily uniquely locate a single file. Instead, I will talk about the _module identifier_ (the group ID and module name) and the _module component identifier_ (a module identifier along with a version).
 
-> [!NOTE]
-> Generally speaking, the group and module name follow the conventions used for Maven coordinates, with the group an all lowercase inverted domain name and the module name containing only lowercase letters, digits, and hyphens. Gradle doesn't actually enforce either of these as requirements; however, like with Maven, publishing a package which breaks either of these expectations may result in being unable to publish the package to certain repositories. GitHub's package system, for instance, assumes that the module name follows Maven conventions, and repositories like Maven Central require ownership of the domain name used as a group.
+{% alert note %}
+Generally speaking, the group and module name follow the conventions used for Maven coordinates, with the group an all lowercase inverted domain name and the module name containing only lowercase letters, digits, and hyphens. Gradle doesn't actually enforce either of these as requirements; however, like with Maven, publishing a package which breaks either of these expectations may result in being unable to publish the package to certain repositories. GitHub's package system, for instance, assumes that the module name follows Maven conventions, and repositories like Maven Central require ownership of the domain name used as a group.
+{% endalert%}
 
 The final piece of the coordinates, the version, defines a _required_ version. Gradle allows for several different types of version declarations:
 - **strictly**: the strongest requirement; the version of a dependency resolved must _exactly_ match the version declared.
@@ -118,8 +120,9 @@ compileClasspath - Compile classpath for source set 'main'.
 |    \--- bannana:apple:3.0.0
 \--- foo:bar:1.0.0 -> 1.1.0
 ```
-> [!NOTE]
-> When variants are resolved, the process is slightly more complex than described above; notably, Gradle won't even bother to look for a variant if it knows, due to a component found at an earlier level of resolution, the component in question would be upgraded. This doesn't have much of an impact, in practice, but _does_ mean that in some cases you may resolve a tree where certain transitive dependencies don't exist in your available repositories, if those dependencies are upgraded at an earlier level to versions that do.
+{% alert note %}
+When variants are resolved, the process is slightly more complex than described above; notably, Gradle won't even bother to look for a variant if it knows, due to a component found at an earlier level of resolution, the component in question would be upgraded. This doesn't have much of an impact, in practice, but _does_ mean that in some cases you may resolve a tree where certain transitive dependencies don't exist in your available repositories, if those dependencies are upgraded at an earlier level to versions that do.
+{% endalert %}
 
 Components model a single package, in some form. Variants model multiple the options available once we've selected a component. For instance, are we looking for something to compile against, or something to run with? Are we looking for a binary library, or its sources? Variants contain both dependencies and artifacts. When a project is published, variants are produced from configurations. For instance, if we take a look at the publishing for `gizmo:gadget`:
 ```gradle
@@ -175,11 +178,10 @@ Attributes
 ```
 When resolving, gradle only picks variants with compatible attribute values, and then tries to narrow those down to the variant with the _best_ matching attribute values. To pick between variants, gradle first picks those variants whose attribute values match what was requested; these do not have to be exact matches, and you may define [compatibility rules](https://docs.gradle.org/9.0.0/userguide/variant_attributes.html#sec:abm-compatibility-rules) that are used at this stage. Of the remaining variants, gradle attempts to pick the best match by applying [disambiguation rules](https://docs.gradle.org/9.0.0/userguide/variant_attributes.html#sec:abm-disambiguation-rules). If no variants remain, or if more than one variant remains, resolution (and likely the build) fails.
 
-> [!NOTE]
-> For a more in-depth discussion of the algorithm used for selection, see the section on the [attribute matching algorithm](https://docs.gradle.org/9.0.0/userguide/variant_aware_resolution.html#sec:abm-algorithm) in the gradle docs.
+{% alert note %}
+For a more in-depth discussion of the algorithm used for selection, see the section on the [attribute matching algorithm](https://docs.gradle.org/9.0.0/userguide/variant_aware_resolution.html#sec:abm-algorithm) in the gradle docs.
+{% endalert %}
 
 Attributes are what allow a single component to have separate transitive runtime and compile-time dependencies; these are exposed in separate variants, and the consuming project's `runtimeClasspath` and `compileClasspath` resolvable configurations have different attributes. Attributes are quite flexible; they can be used to select the sources or javadoc of dependencies, provide different artifacts compatible with different JVM versions, or distinguish between native binaries for different architectures. Since artifacts are attached to variants, this explains why a module component identifier may not uniquely identify a file on a given repository in Gradle, unlike how a GAV works in Maven: different variants on the published component could expose different artifacts.
 
-_Part 2: Capabilities and Artifacts hopefully coming soon!_
-
-_Have questions or thoughts? Feel free to reach out to me at [lukebemish@lukebemish.dev](mailto:lukebemish@lukebemish.dev)_
+Next: [Part 2: Artifacts and Capabilities]({% post_url 2025-08-03-gradle-dependencies-part-2 %}).
