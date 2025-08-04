@@ -13,7 +13,6 @@ gem 'kramdown-parser-gfm', '~> 1.1.0'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'jekyll-octicons'
-  gem 'jekyll-gfm-admonitions'
   gem 'jekyll-sass-converter'
   gem 'jekyll-redirect-from'
   gem 'jekyll-sitemap'

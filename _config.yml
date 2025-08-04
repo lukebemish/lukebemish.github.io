@@ -15,7 +15,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-octicons
-  - jekyll-gfm-admonitions
   - jekyll-seo-tag
   - jekyll-coffeescript
   - jekyll-commonmark-ghpages

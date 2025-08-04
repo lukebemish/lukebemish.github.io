@@ -100,5 +100,3 @@ Many other common tools for developing scientific software will have some form o
 ## Further Reading
 
 Here, I have barely touched the surface of what git (and GitHub) have to offer. [GitHub’s documentation](https://docs.github.com/) offers a wealth of resources on how to do various operations with git, such as making "releases" that mark the state of code in a repository at a given time for an easily rememberable name, offering to contribute fixes or features back to public repositories, and more. Git is an incredibly powerful tool, and its use can help software stay organized and lead to reproducible results, and I hope that you will find it useful.
-
-_Have questions or thoughts? Feel free to reach out to me at [lukebemish@lukebemish.dev](mailto:lukebemish@lukebemish.dev)_
