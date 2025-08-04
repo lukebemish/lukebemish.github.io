@@ -204,7 +204,8 @@ To consume this variant from another project, we simply need a configuration tha
 configurations {
     runtimeClasspath {
         attributes {
-            attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling, Bundling.SHADOWED))
+            attribute(Bundling.BUNDLING_ATTRIBUTE,
+                objects.named(Bundling, Bundling.SHADOWED))
         }
     }
 }
