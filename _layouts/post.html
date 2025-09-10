@@ -11,6 +11,20 @@ layout: default
 {{content}}
 <p><em>Have questions or thoughts? Feel free to reach out to me at <a href="mailto:lukebemish@lukebemish.dev">lukebemish@lukebemish.dev</a></em></p>
 
-{% if page.tags and page.tags.size != 0 %}
-  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-{% endif %}
+{%- if page.tags && page.tags.size > 0 -%}
+  {%- for tag in site.tags -%}
+    <h3 id="{{ tag[0] | downcase | replace: ' ', '-' }}" class="post-list-heading">Tagged With: {{ tag[0] }}</h3>
+    <ul class="post-list">
+    {%- for post in tag[1] -%}
+    <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <em>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+        </a>
+        </em>
+    </li>
+    {%- endfor -%}
+  {%- endfor -%}
+  </ul>
+{%- endif -%}

@@ -2,6 +2,7 @@
 layout: post
 title: 'Gradle Dependencies, Part 1: Modules, Configurations, and Variants, Oh My!'
 author: Luke Bemish
+tag: Gradle Dependencies
 ---
 
 If you've ever worked with [Gradle](https://gradle.org/) (a build tool primarily targetted at Java or Android environments), you've likely used dependencies. And if you've ever used other Java-focused build tools, such as Maven, you'll likely have noticed that dependencies in Gradle can be much more complex! Configurations? Variants? Attributes? What all is going on here, exactly? In this series of posts I will attempt to pull apart Gradle's dependency management system, answering some questions I often see about it. In this first post, I'll provide an overview of the core parts of the model.
@@ -90,7 +91,7 @@ Suppose we are interested in resolving the compile classpath in the consuming pr
 |  .------------------------.  |          |  .-------------------------.  |          |  .-------------------------.  |
 | |api                       | |          | |apiElements                | |          | |apiElements                | |
 | |  .--------------------.  | |          | |  .---------------------.  | |          | |  .---------------------.  | |
-| | |dendencies            | | |          | | |dendencies             | | |    +------>+ |dendencies             | | |
+| | |dependencies          | | |          | | |dependencies           | | |    +------>+ |dependencies           | | |
 | | |  .----------------.  | | |          | | |  .-----------.        | | |    |     | |  '---------------------'  | |
 | | | |gizmo:gadget:2.0.0| | | |     +----->+ | |foo:bar:1.1.0|       +--------+     |  '-------------------------'  |
 | | |  '----------------'  | | |     |    | | |  '-----------'        | | |    |      '-----------------------------'
@@ -100,13 +101,13 @@ Suppose we are interested in resolving the compile classpath in the consuming pr
 | |  '---------------+----'  | |     |    | |  '---------------------'  | |    |     |  .-------------------------.  |
 |  '-----------------|------'  |     |    |  '-------------------------'  |    |     | |apiElements                | |
 |                    |         |     |     '-----------------------------'     |     | |  .---------------------.  | |
-|                    |         |     |                                         +------>+ |dendencies             | | |
+|                    |         |     |                                         +------>+ |dependencies           | | |
 |    inherits dependencies     |     |     .-----------------------------.           | |  '---------------------'  | |
 |                    |         |     |    |foo:bar:1.0.0                  |          |  '-------------------------'  |
 |                    |         |     |    |  .-------------------------.  |           '-----------------------------'
 |  .-----------------|------.  |     |    | |apiElements                | |
 | |compileClasspath  v       | |     |    | |  .---------------------.  | |
-| |  .---------------+----.  | |     |    | | |dendencies             | | |
+| |  .---------------+----.  | |     |    | | |dependencies           | | |
 | | |dependencies          +---------+----->+  '---------------------'  | |
 | |  '--------------------'  | |          |  '-------------------------'  |
 |  '------------------------'  |           '-----------------------------'
