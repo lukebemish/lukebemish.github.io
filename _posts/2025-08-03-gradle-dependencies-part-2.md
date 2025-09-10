@@ -2,6 +2,7 @@
 layout: post
 title: 'Gradle Dependencies, Part 2: Artifacts and Capabilities'
 author: Luke Bemish
+tag: Gradle Dependencies
 ---
 
 Previously: [Part 1: Modules, Configurations, and Variants, Oh My!]({% post_url 2025-08-02-gradle-dependencies-part-1 %})
@@ -78,7 +79,7 @@ We also note that the `outgoingVariants` report gives us some other information 
 
 ### Third-party artifact selectors
 
-Gradle support's Maven's metadafa format. When you publish a project using the `maven-publish` plugin, it publishes a maven `.pom` along with its own metadata; when you consume a dependency from a Maven repository, its transitive dependencies (declared in Maven's format) work as expected. Maven GAVs used to locate dependencies are a bit different from a Gradle module component identifier. While a module component identifier might look like:
+Gradle support's Maven's metadata format. When you publish a project using the `maven-publish` plugin, it publishes a maven `.pom` along with its own metadata; when you consume a dependency from a Maven repository, its transitive dependencies (declared in Maven's format) work as expected. Maven GAVs used to locate dependencies are a bit different from a Gradle module component identifier. While a module component identifier might look like:
 ```
 group.id:module-name:version
 ```
@@ -246,7 +247,7 @@ Resolving `compileClasspath` with these dependencies might look something like t
 |  .-----------------------------------.  |          |  .----------------------------.  |
 | |api                                  | |          | |apiElements                   | |
 | |  .-------------------------------.  | |          | |  .------------------------.  | |
-| | |dendencies                       | | |          | | |dendencies                | | |
+| | |dependencies                     | | |          | | |dependencies              | | |
 | | |  .---------------------------.  | | |          | | |  .--------------------.  | | |
 | | | |gizmo:gadget:2.0.0           | | | |     +----->+ | |...                   +---------> ...
 | | | |  .-----------------------.  | | | |     |    | | |  '--------------------'  | | |
@@ -261,7 +262,7 @@ Resolving `compileClasspath` with these dependencies might look something like t
 | | | | |  gizmo:gadget-baz      |  | | | |     |    |  .----------------------------.  |
 | | | |  '----------------------'   | | | |     |    | |bazApiElements                | |
 | | |  '---------------------------'  | | |     |    | |  .------------------------.  | |
-| |  '---------------+---------------'  | |     |    | | |dendencies                | | |
+| |  '---------------+---------------'  | |     |    | | |dependencies              | | |
 |  '-----------------|-----------------'  |     |    | | |  .--------------------.  | | |
 |                    |                    |     |    | | | |...                   +---------> ...
 |                    |                    |     |    | | |  '--------------------'  | | |
@@ -306,6 +307,11 @@ java {
     }
 }
 ```
+
+{% alert note %}
+The feature name used when you register the feature isn't _quite_ exactly the capability suffix that is published; namely, it's converted from `camelCase` to `kebab-case`. So, `registerFeature("myFeature")` will publish a capability with the suffix `-my-feature`, and other places that refer to the feature name, such as requiring it on a dependency, will use the `kebab-case` form.
+{% endalert %}
+
 When we register a feature, Gradle will set up everything needed to publish all the equivalents of the built-in variants, but with a capability derived from the feature name (in this case, `gizmo:gadget-baz`), with the same version as the project. Unlike using a classifier, a feature variant can have its own transitive dependencies; for instance, we can make the `baz` feature depend on the main feature:
 ```gradle
 dependencies {
@@ -325,4 +331,4 @@ dependencies {
 ```
 Feature variants and attributes, combined, allow Gradle to handle the use cases where Maven uses classifiers, but in a way that exposes in the published metadata everything available within a component to consumers.
 
-_Part 3 hopefully coming soon!_
+Next: [Part 3: Why Is My Artifact Transform Failing?]({% post_url 2025-09-10-gradle-dependencies-part-3 %})
