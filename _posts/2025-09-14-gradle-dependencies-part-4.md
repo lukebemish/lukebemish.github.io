@@ -309,14 +309,6 @@ With this, resolution of `pypi:requests:2.32.5` now properly resolves all its tr
      +--- pypi:idna:{strictly [2.5,4)} -> 3.10
      |    \--- _extract-extension.org.files.pythonhosted:<...>/idna-<...>.whl:3.10 -> org.files.pythonhosted:<...>/idna-<...>:3.10
      +--- pypi:urllib3:{strictly [1.21.1,3)} -> 2.5.0
-     |    +--- pypi:brotli:{strictly [1.0.9,)} -> 1.1.0
-     |    |    \--- _extract-extension.org.files.pythonhosted:<...>/Brotli-<...>.whl:1.1.0 -> org.files.pythonhosted:<...>/Brotli-<...>:1.1.0
-     |    +--- pypi:brotlicffi:{strictly [0.8.0,)} -> 1.1.0.0
-     |    |    +--- pypi:cffi:{strictly [1.0.0,)} -> 2.0.0
-     |    |    |    +--- pypi:pycparser:{strictly +} -> 2.23
-     |    |    |    |    \--- _extract-extension.org.files.pythonhosted:<...>/pycparser-<...>.whl:2.23 -> org.files.pythonhosted:<...>/pycparser-<...>:2.23
-     |    |    |    \--- _extract-extension.org.files.pythonhosted:<...>/cffi-<...>.whl:2.0.0 -> org.files.pythonhosted:<...>/cffi-<...>:2.0.0
-     |    |    \--- _extract-extension.org.files.pythonhosted:<...>/brotlicffi-<...>.whl:1.1.0.0 -> org.files.pythonhosted:<...>/brotlicffi-<...>:1.1.0.0
      |    \--- _extract-extension.org.files.pythonhosted:<...>/urllib3-<...>.whl:2.5.0 -> org.files.pythonhosted:<...>/urllib3-<...>:2.5.0
      +--- pypi:certifi:{strictly [2017.4.17,)} -> 2025.8.3
      |    \--- _extract-extension.org.files.pythonhosted:<...>/certifi-<...>.whl:2025.8.3 -> org.files.pythonhosted:<...>/certifi-<...>:2025.8.3
@@ -330,10 +322,6 @@ If we inspect the resolved files, we see that they are all the expected `.whl` f
 /<...>/idna-3.10-py3-none-any-3.10.whl
 /<...>/urllib3-2.5.0-py3-none-any-2.5.0.whl
 /<...>/certifi-2025.8.3-py3-none-any-2025.8.3.whl
-/<...>/Brotli-1.1.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64-1.1.0.whl
-/<...>/brotlicffi-1.1.0.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64-1.1.0.0.whl
-/<...>/cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64-2.0.0.whl
-/<...>/pycparser-2.23-py3-none-any-2.23.whl
 ```
 
 Now, obviously I picked a particularly wacky example here; in practice, you're unlikely to be consuming PyPI packages with Gradle (seeing as Python has plenty of package-management systems of its own). However, this general approach can be used to consume any foreign metadata format in a Gradle build, and its constituent parts are quite useful for fixing up dependency metadata in general.
