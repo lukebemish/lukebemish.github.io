@@ -215,4 +215,4 @@ This allows us to work with custom attributes and artifact transforms in a simil
 
 This fails during _variant_ selection due to the lack of a matching variant. Components that are entirely unaware proceed to artifact selection because the lack of a value for `com.example.transformed` in all their variants matches any requested value. If your goal is to transform the results of resolution, using an attribute you _didn't_ consider during variant selection, you're likely to be better served by using artifact views instead, at least if you expect anything you consume to have that a value for that variant to begin with. Artifact views let you split out the process of artifact selection from the process of variant selection and request different attributes for each.
 
-_Part 4 hopefully coming soon!_
+Next: [Part 4: Custom Repository Metadata Formats, or, PyPI in Gradle]({% post_url 2025-09-14-gradle-dependencies-part-4 %})
