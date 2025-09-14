@@ -135,7 +135,7 @@ details.withVariant("runtime", v -> {
 });
 ```
 
-To actually retrieve the metadata within the rule, we can use the `RepositoryResourceAccessor` with the same path, relative to the repository URL, as we'd expect. Then, the next step is to attach the dependency metadata to variants on the component. I did this by creating a new variant for each OS/architecture combination, for both source and binary distributions (the `TargetVariant` class in the below example is a utility for handling the target platforms and their variant names). Then, for each dependency, I find which platforms it should be used on, and add it on each of those platforms:
+To actually retrieve the metadata within the rule, we can use the `RepositoryResourceAccessor` with the same path, relative to the repository URL, as we'd expect. Then, the next step is to attach the dependency metadata to variants on the component. I did this by creating a new variant for each OS/architecture combination (except for a single combination which reuses `runtime`), for both source and binary distributions (the `TargetVariant` class in the below example is a utility for handling the target platforms and their variant names). Then, for each dependency, I find which platforms it should be used on, and add it on each of those platforms:
 
 ```java
 getResources().withResource(String.format("%s/%s/json", id.getName(), id.getVersion()), is -> {
