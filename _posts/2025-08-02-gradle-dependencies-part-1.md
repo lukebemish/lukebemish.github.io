@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Gradle Dependencies, Part 1: Modules, Configurations, and Variants, Oh My!'
+title: 'Modules, Configurations, and Variants, Oh My!'
 author: Luke Bemish
 categories: Gradle Dependencies
 ---
