@@ -41,6 +41,16 @@
               on
               <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
               <!-- , tagged on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}} -->
+              <span class="share-header">
+                {% for social in site.social %}
+                  {% if social.share_url != null %}
+                    <a class="icon-{{ social.icon }} page-social-link" href="{{ social.share_url }}{% if social.share_title %}{{ social.share_title }}{{page.title | cgi_escape}}{% endif %}{{ social.share_link }}{{site.url}}{{site.baseurl}}{{page.url}}"
+                      onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+                      <i class="fa-{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %} fa-{{ social.icon }} fa-fw"></i>
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </span>
             </div>
           </div>
         </div>
@@ -86,7 +96,7 @@
           <section class="share">
             {% for social in site.social %}
               {% if social.share_url != null %}
-                <a class="icon-{{ social.icon }}" href="{{ social.share_url }}{% if social.share_title %}{{ social.share_title }}{{page.title | cgi_escape}}{% endif %}{{ social.share_link }}{{site.url}}{{site.baseurl}}{{page.id}}"
+                <a class="icon-{{ social.icon }} page-social-link" href="{{ social.share_url }}{% if social.share_title %}{{ social.share_title }}{{page.title | cgi_escape}}{% endif %}{{ social.share_link }}{{site.url}}{{site.baseurl}}{{page.url}}"
                   onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
                   <i class="fa-{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %} fa-{{ social.icon }} fa-fw"></i>
                 </a>
