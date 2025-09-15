@@ -27,6 +27,7 @@ plugins:
   - jekyll-default-layout
   - jekyll-titles-from-headings
 markdown: kramdown
+permalink: /:year/:month/:day/:title:output_ext
 kramdown:
   input: GFM
   hard_wrap: false
