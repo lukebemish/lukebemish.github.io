@@ -9,6 +9,7 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.4.0"
 gem 'kramdown', '~> 2.4.0'
+gem 'bourbon'
 gem 'kramdown-parser-gfm', '~> 1.1.0'
 # If you have any plugins, put them here!
 group :jekyll_plugins do

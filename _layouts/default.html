@@ -1,85 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
 
-{% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-    {% include head-custom.html %}
-  </head>
+  {% include head.html %}
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if page.homepage %}
-          {% if false %}
-          <p><picture>
-            <source
-              srcset="/assets/img/logo/picture1024.webp 1024w, /assets/img/logo/picture512.webp 512w, /assets/img/logo/picture256.webp 256w"
-              sizes="(max-width: 960px) calc(100vw - 30px), 270px"
-              type="image/webp"
-            >
-            <img
-              srcset="/assets/img/logo/picture1024.png 1024w, /assets/img/logo/picture512.png 512w, /assets/img/logo/picture256.png 256w"
-              sizes="(max-width: 960px) calc(100vw - 30px), 270px"
-              src="/assets/img/logo/picture512.png"
-              alt="Photograph of Luke Bemish"
-              width="100%"
-              style="aspect-ratio: 1/1"
-            >
-          </picture></p>
-          {% endif %}
-        {% elsif site.logo %}
-          {% if false %}
-          <p><img src="{{site.logo | relative_url}}" alt="Logo" /></p>
-          {% endif %}
-        {% endif %}
+    {% include header.html %}
 
-        {% include blurb.html %}
-      </header>
+    <!-- content start -->
 
-      {% capture anchor_body %}
-          {% octicon link height:16 %}
-      {% endcapture %}
-
-      {% capture htmlcontent %}
-      <section>
-        {{content}}
-        {%- if page.homepage and site.posts.size > 0 -%}
-          {%- if page.list_title -%}
-          <h2 id="posts" class="post-list-heading">{{ page.list_title }}</h2>
-          {%- endif -%}
-          <ul class="post-list">
-          {%- for post in site.posts -%}
-          <li>
-              <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-              <em>
-              <a class="post-link" href="{{ post.url | relative_url }}">
-                  {{ post.title | escape }}
-              </a>
-              </em>
-          </li>
-          {%- endfor -%}
-          </ul>
-        {%- endif -%}
-      </section>
-      {% endcapture %}
-
-      {% include anchor_headings.html html=htmlcontent anchorBody=anchor_body anchorAttrs='class="anchor-wrapper" aria-hidden="true"' beforeHeading=true %}
-
-      {% if site.github.is_project_page %}
-      <footer>
-        <p class="view"><a href="{{ site.github.repository_url }}">View this site on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
-      </footer>
-      {% endif %}
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
     </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-  </body>
-</html>
 
+    <!-- content end -->
+
+    {% include footer.html %}
+    {% include javascripts.html %}
+
+  </body>
+
+</html>

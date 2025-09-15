@@ -1,30 +1,145 @@
 ---
-layout: default
 ---
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body itemscope itemtype="http://schema.org/Article">
+    {% include header.html %}
+    <main class="content" role="main">
+      <article class="post">
+        {% if page.image %}
+        <div class="article-image">
+          <div class="post-image-image" style="background-image: url({% if page.image %}{{ page.image | prepend: site.baseurl }}{% endif %})">
+            Article Image
+          </div>
+          <div class="post-image-image2" style="background-image: url({% if page.image2 %}{{ page.image2 | prepend: site.baseurl }}{% endif %})">
+            Article Image
+          </div>
+          <div class="post-meta">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="cf post-meta-text">
+              <div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})">Blog Logo</div>
+              <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{ site.author }}</h4>
+              on
+              <time datetime="{{ page.date | date: "%F %R" }}">{{ page.date | date_to_string }}</time>
+              <!-- , tagged on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}} -->
+            </div>
+            <div style="text-align:center">
+              <a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="cf post-meta-text">
+              {% if site.author_image %}
+              <div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})">Blog Logo</div>
+              {% endif %}
+              <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{ page.author }}</h4>
+              on
+              <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+              <!-- , tagged on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}} -->
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        {% endif %}
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          {% if page.categories and page.categories.size != 0 %}
+            {% assign cat = page.categories[0] %}
+            {% assign cat_list = site.categories[cat] %}
+            {% for post in cat_list %}
+              {% if post.url == page.url %}
+                {% assign pOffset = forloop.index0 | minus: 1 %}
+                {% assign nOffset = pOffset | plus: 2 %}
+                {% if forloop.first == false %}
+                  {% assign next_post = cat_list[pOffset] %}
+                {% endif %}
+                {% if forloop.last == false %}
+                  {% assign previous_post = cat_list[nOffset] %}
+                {% endif %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if previous_post %}
+            <p>Previously: <a href="{{ previous_post.url }}">{{ previous_post.title }}</a></p>
+          {% endif %}
+          {% include toc.html html=content %}
+          {% capture anchor_body %}
+            {% octicon link height:16 %}
+          {% endcapture %}
+          {% include anchor_headings.html html=content anchorBody=anchor_body anchorAttrs='class="anchor-wrapper" aria-hidden="true"' beforeHeading=true %}
+          {% if next_post %}
+            <p>Next: <a href="{{ next_post.url }}">{{ next_post.title }}</a></p>
+          {% endif %}
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            {% for social in site.social %}
+              {% if social.share_url != null %}
+                <a class="icon-{{ social.icon }}" href="{{ social.share_url }}{% if social.share_title %}{{ social.share_title }}{{page.title | cgi_escape}}{% endif %}{{ social.share_link }}{{site.url}}{{site.baseurl}}{{page.id}}"
+                  onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+                  <i class="fa-{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %} fa-{{ social.icon }} fa-fw"></i>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <footer class="author">
+              <h4>{{ site.author }}</h4>
+              <p class="published{%if site.author_image %}author-left{% endif %}">Published <time datetime="{{ page.date | date: "%F %R" }}">{{ page.date | date_to_string }}</time></p>
+            </footer>
+          </div>
+          {{/post}}
+          <div class="isRight">
+            <footer class="site-footer">
+              <p><em>Have questions or thoughts? Feel free to reach out to me at <a href="mailto:lukebemish@lukebemish.dev">lukebemish@lukebemish.dev</a></em></p>
+              <div class="inner">
+                <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{site.author}}</a> &copy; {{ page.date | date: '%Y' }}<br>All rights reserved.</section>
+              </div>
+            </footer>
+          </div>
+        </div>
+        {%if site.disqus %}
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = '{{site.disqus}}'; // required: replace example with your forum shortname
 
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
-<h1>{{ page.title }}</h1>
-
-<p class="view">by {{ page.author | default: site.author }}</p>
-
-{% include toc.html html=content %}
-{{content}}
-<p><em>Have questions or thoughts? Feel free to reach out to me at <a href="mailto:lukebemish@lukebemish.dev">lukebemish@lukebemish.dev</a></em></p>
-
-{%- if page.tags && page.tags.size > 0 -%}
-  {%- for tag in site.tags -%}
-    <h3 id="{{ tag[0] | downcase | replace: ' ', '-' }}" class="post-list-heading">Tagged With: {{ tag[0] }}</h3>
-    <ul class="post-list">
-    {%- for post in tag[1] -%}
-    <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <em>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-        </a>
-        </em>
-    </li>
-    {%- endfor -%}
-  {%- endfor -%}
-  </ul>
-{%- endif -%}
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        {% endif %}
+      </article>
+    </main>
+    <div class="bottom-closer">
+      {% if site.cover %}
+      <div class="background-closer-image" {%if site.cover %} style="background-image: url({{ site.cover | prepend: site.baseurl }})"{% endif %}>
+        Image
+      </div>
+      {% endif %}
+      <div class="inner">
+        <h1 class="blog-title">{{ site.title }}</h1>
+        <h2 class="blog-description">{{ site.description }}</h2>
+        <a href={{ "/" | prepend: site.baseurl }} class="btn">Back to Overview</a>
+      </div>
+    </div>
+    {% include javascripts.html %}
+  </body>
+</html>

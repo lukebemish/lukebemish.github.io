@@ -2,12 +2,11 @@
 layout: post
 title: 'Gradle Dependencies, Part 2: Artifacts and Capabilities'
 author: Luke Bemish
-tag: Gradle Dependencies
+categories: Gradle Dependencies
+tags: featured
 ---
 
-Previously: [Part 1: Modules, Configurations, and Variants, Oh My!]({% post_url 2025-08-02-gradle-dependencies-part-1 %})
-
-This is the second part of my series on Gradle's dependency management system. In this post, I will discuss how Gradle handles dependency artifacts, the consequences of Gradle's support for Maven-style dependencies involving classifiers, and Gradle's own solutions to the same problem.
+Let's discuss how Gradle handles dependency artifacts, the consequences of Gradle's support for Maven-style dependencies involving classifiers, and Gradle's own solutions to the same problem.
 
 ## Artifact selection
 
@@ -330,5 +329,3 @@ dependencies {
 }
 ```
 Feature variants and attributes, combined, allow Gradle to handle the use cases where Maven uses classifiers, but in a way that exposes in the published metadata everything available within a component to consumers.
-
-Next: [Part 3: Why Is My Artifact Transform Failing?]({% post_url 2025-09-10-gradle-dependencies-part-3 %})
