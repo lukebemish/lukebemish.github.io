@@ -3,7 +3,6 @@ layout: post
 title: 'Gradle Dependencies, Part 3: Why Is My Artifact Transform Failing?'
 author: Luke Bemish
 categories: Gradle Dependencies
-tags: featured
 ---
 
 Let's discuss Gradle's artifact transform system, including some common pitfalls of using it and how they may be worked around.
