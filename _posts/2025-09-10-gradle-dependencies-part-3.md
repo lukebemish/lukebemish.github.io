@@ -2,12 +2,11 @@
 layout: post
 title: 'Gradle Dependencies, Part 3: Why Is My Artifact Transform Failing?'
 author: Luke Bemish
-tag: Gradle Dependencies
+categories: Gradle Dependencies
+tags: featured
 ---
 
-Previously: [Part 2: Artifacts and Capabilities]({% post_url 2025-08-03-gradle-dependencies-part-2 %})
-
-This is the third part of my series on Gradle's dependency management system. In this post, I will discuss Gradle's artifact transform system, including some common pitfalls of using it and how they may be worked around.
+Let's discuss Gradle's artifact transform system, including some common pitfalls of using it and how they may be worked around.
 
 ## A mildly misleading example
 
@@ -214,5 +213,3 @@ This allows us to work with custom attributes and artifact transforms in a simil
 ```
 
 This fails during _variant_ selection due to the lack of a matching variant. Components that are entirely unaware proceed to artifact selection because the lack of a value for `com.example.transformed` in all their variants matches any requested value. If your goal is to transform the results of resolution, using an attribute you _didn't_ consider during variant selection, you're likely to be better served by using artifact views instead, at least if you expect anything you consume to have that a value for that variant to begin with. Artifact views let you split out the process of artifact selection from the process of variant selection and request different attributes for each.
-
-Next: [Part 4: Custom Repository Metadata Formats, or, PyPI in Gradle]({% post_url 2025-09-14-gradle-dependencies-part-4 %})

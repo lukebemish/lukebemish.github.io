@@ -2,7 +2,8 @@
 layout: post
 title: 'Gradle Dependencies, Part 1: Modules, Configurations, and Variants, Oh My!'
 author: Luke Bemish
-tag: Gradle Dependencies
+categories: Gradle Dependencies
+tags: featured
 ---
 
 If you've ever worked with [Gradle](https://gradle.org/) (a build tool primarily targeted at Java or Android environments), you've likely used dependencies. And if you've ever used other Java-focused build tools, such as Maven, you'll likely have noticed that dependencies in Gradle can be much more complex! Configurations? Variants? Attributes? What all is going on here, exactly? In this series of posts I will attempt to pull apart Gradle's dependency management system, answering some questions I often see about it. In this first post, I'll provide an overview of the core parts of the model.
@@ -184,5 +185,3 @@ For a more in-depth discussion of the algorithm used for selection, see the sect
 {% endalert %}
 
 Attributes are what allow a single component to have separate transitive runtime and compile-time dependencies; these are exposed in separate variants, and the consuming project's `runtimeClasspath` and `compileClasspath` resolvable configurations have different attributes. Attributes are quite flexible; they can be used to select the sources or javadoc of dependencies, provide different artifacts compatible with different JVM versions, or distinguish between native binaries for different architectures. Since artifacts are attached to variants, this explains why a module component identifier may not uniquely identify a file on a given repository in Gradle, unlike how a GAV works in Maven: different variants on the published component could expose different artifacts.
-
-Next: [Part 2: Artifacts and Capabilities]({% post_url 2025-08-03-gradle-dependencies-part-2 %})

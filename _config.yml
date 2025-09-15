@@ -8,9 +8,9 @@ domain: "lukebemish.dev"
 github_username: lukebemish
 repository: lukebemish/lukebemish.github.io
 show_downloads: false
-auhtor: Luke Bemish
+author: Luke Bemish
+paginate: 5
 
-remote_theme: pages-themes/minimal@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -43,3 +43,14 @@ sass:
 highlighter: rouge
 gist:
   noscript: false
+social:
+  - icon: envelope
+    icon_category: solid
+    url: mailto:lukebemish@lukebemish.dev
+  - icon:	github
+    url:	https://github.com/lukebemish
+  - icon: linkedin
+    url: https://www.linkedin.com/in/luke-bemish/
+  - icon: rss
+    icon_category: solid
+    url: /feed.xml

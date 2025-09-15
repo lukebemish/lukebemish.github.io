@@ -2,12 +2,11 @@
 layout: post
 title: 'Gradle Dependencies, Part 4: Custom Repository Metadata Formats, or, PyPI in Gradle'
 author: Luke Bemish
-tag: Gradle Dependencies
+categories: Gradle Dependencies
+tags: featured
 ---
 
-Previously: [Part 3: Why Is My Artifact Transform Failing?]({% post_url 2025-09-10-gradle-dependencies-part-3 %})
-
-This is the fourth part of my series on Gradle's dependency management system. In this post, I'll discuss a wacky but surprisingly clean approach to supporting metadata formats Gradle doesn't natively understand.
+Let's discuss a wacky but surprisingly clean approach to supporting metadata formats Gradle doesn't natively understand.
 
 ## Dependency metadata formats
 
@@ -325,5 +324,3 @@ If we inspect the resolved files, we see that they are all the expected `.whl` f
 ```
 
 Now, obviously I picked a particularly wacky example here; in practice, you're unlikely to be consuming PyPI packages with Gradle (seeing as Python has plenty of package-management systems of its own). However, this general approach can be used to consume any foreign metadata format in a Gradle build, and its constituent parts are quite useful for fixing up dependency metadata in general.
-
-_Part 5 hopefully coming soon!_
