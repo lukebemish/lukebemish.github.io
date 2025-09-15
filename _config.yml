@@ -52,6 +52,8 @@ social:
     url:	https://github.com/lukebemish
   - icon: linkedin
     url: https://www.linkedin.com/in/luke-bemish/
+    share_url: https://www.linkedin.com/sharing/share-offsite/?
+    share_link: url=
   - icon: rss
     icon_category: solid
     url: /feed.xml
