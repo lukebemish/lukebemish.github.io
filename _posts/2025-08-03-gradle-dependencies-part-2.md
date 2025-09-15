@@ -3,7 +3,6 @@ layout: post
 title: 'Gradle Dependencies, Part 2: Artifacts and Capabilities'
 author: Luke Bemish
 categories: Gradle Dependencies
-tags: featured
 ---
 
 Let's discuss how Gradle handles dependency artifacts, the consequences of Gradle's support for Maven-style dependencies involving classifiers, and Gradle's own solutions to the same problem.
