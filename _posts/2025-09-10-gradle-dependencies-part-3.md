@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Gradle Dependencies, Part 3: Why Is My Artifact Transform Failing?'
+title: 'Why Is My Artifact Transform Failing?'
 author: Luke Bemish
 categories: Gradle Dependencies
 ---

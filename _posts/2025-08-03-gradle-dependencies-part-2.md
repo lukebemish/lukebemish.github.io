@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Gradle Dependencies, Part 2: Artifacts and Capabilities'
+title: 'Artifacts and Capabilities'
 author: Luke Bemish
 categories: Gradle Dependencies
 ---
