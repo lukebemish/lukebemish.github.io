@@ -5,7 +5,7 @@ author: Luke Bemish
 categories: Gradle Dependencies
 ---
 
-Let's discuss Gradle's artifact transform system, including some common pitfalls of using it and how they may be worked around.
+Gradle's artifact transform system lets you transform artifacts based on their attributes. However, using it often means running into some common pitfalls, as how artifact transforms work can be unintuitive.
 
 ## A mildly misleading example
 
@@ -197,7 +197,7 @@ dependencies {
 }
 ```
 
-This allows us to work with custom attributes and artifact transforms in a similar fashion to how `artifactType` works, by coupling default values for them to artifact types. Note an important caveat though: we will still be unable to resolve an artifact for a component that only provides a variant with `com.example.transformed=false` and none with `com.example.transformed=true`:
+This allows us to work with custom attributes and artifact transforms similarly to how `artifactType` works, by coupling default values for them to artifact types. Note an important caveat though: we will still be unable to resolve an artifact for a component that only provides a variant with `com.example.transformed=false` and none with `com.example.transformed=true`:
 
 ```
 > Could not resolve all files for configuration ':runtimeClasspath'.
