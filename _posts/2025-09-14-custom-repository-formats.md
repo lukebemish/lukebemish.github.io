@@ -2,7 +2,8 @@
 layout: post
 title: 'Custom Repository Metadata Formats, or, PyPI in Gradle'
 author: Luke Bemish
-categories: Gradle Dependencies
+categories:
+  - Gradle Dependencies
 redirect_from:
     - /2025/09/14/gradle-dependencies-part-4
 ---

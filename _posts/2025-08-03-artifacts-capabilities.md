@@ -2,7 +2,8 @@
 layout: post
 title: 'Artifacts and Capabilities'
 author: Luke Bemish
-categories: Gradle Dependencies
+categories:
+  - Gradle Dependencies
 redirect_from:
   - /2025/08/03/gradle-dependencies-part-2
 ---

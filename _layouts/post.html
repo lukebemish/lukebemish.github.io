@@ -53,6 +53,9 @@
               </span>
             </div>
           </div>
+          {% for category in page.categories %}
+          <a class="category-link" href="/categories/{{ category | slugify }}.html">{{category}}</a>
+          {% endfor %}
         </div>
         <br>
         <br>

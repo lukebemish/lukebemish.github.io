@@ -2,7 +2,8 @@
 layout: post
 title: 'Why Is My Artifact Transform Failing?'
 author: Luke Bemish
-categories: Gradle Dependencies
+categories:
+  - Gradle Dependencies
 redirect_from:
     - /2025/09/10/gradle-dependencies-part-3
 ---
