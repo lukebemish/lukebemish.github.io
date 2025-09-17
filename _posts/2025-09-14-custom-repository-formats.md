@@ -3,6 +3,8 @@ layout: post
 title: 'Custom Repository Metadata Formats, or, PyPI in Gradle'
 author: Luke Bemish
 categories: Gradle Dependencies
+redirect_from:
+    - /2025/09/14/gradle-dependencies-part-4
 ---
 
 Gradle only natively supports a few dependency metadata formats. Tools like component metadata rules, ivy pattern layouts, and component version listers can be combined to handle metadata and repositories in other formats in a way Gradle can understand.
@@ -198,7 +200,7 @@ project.getRepositories().exclusiveContent(exclusive -> {
     });
 });
 ```
-Now, a dep on `org.files.pythonhosted:<path>:<version>` with an artifact selector for the proper extension will resolve to the correct file. The use of `[ext]` and the extension artifact selector (usually [not a great pattern]({% post_url 2025-08-03-gradle-dependencies-part-2 %}#why-artifact-selectors-sorta-suck)) is necessary here because when using `artifact` metadata, Gradle determines the artifact type of the artifacts of the generated variant purely from the extension used to _search_ for the artifact, which by default is `.jar`, so we need to specify this explicitly.
+Now, a dep on `org.files.pythonhosted:<path>:<version>` with an artifact selector for the proper extension will resolve to the correct file. The use of `[ext]` and the extension artifact selector (usually [not a great pattern]({% post_url 2025-08-03-artifacts-capabilities %}#why-artifact-selectors-sorta-suck)) is necessary here because when using `artifact` metadata, Gradle determines the artifact type of the artifacts of the generated variant purely from the extension used to _search_ for the artifact, which by default is `.jar`, so we need to specify this explicitly.
 
 It turns out that component rules throw another wrench in the works here; at the time of this writing, in Gradle 9.0.0, you [cannot specify artifact selectors on dependencies added in component rules](https://github.com/gradle/gradle/issues/31867). However, we can work around this with _another_ dummy dependency group, using a dependency rule to extract the extension from the module name and apply it as an artifact selector:
 

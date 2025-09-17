@@ -3,6 +3,8 @@ layout: post
 title: 'Artifacts and Capabilities'
 author: Luke Bemish
 categories: Gradle Dependencies
+redirect_from:
+  - /2025/08/03/gradle-dependencies-part-2
 ---
 
 Once Gradle resolves variants, it locates artifact associated with those variants. However, since Gradle's support for Maven-style dependencies involving classifiers has some potentially unpleasant consequences in this process, Gradle has some of its own solutions to the same problem.

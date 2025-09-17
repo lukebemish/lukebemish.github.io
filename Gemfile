@@ -34,6 +34,7 @@ group :jekyll_plugins do
   gem 'jekyll-default-layout'
   gem 'jekyll-titles-from-headings'
   gem 'jekyll-commonmark-ghpages'
+  gem 'jekyll-redirect-from'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
