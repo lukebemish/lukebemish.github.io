@@ -3,6 +3,8 @@ layout: post
 title: 'Modules, Configurations, and Variants, Oh My!'
 author: Luke Bemish
 categories: Gradle Dependencies
+redirect_from:
+    - /2025/08/02/gradle-dependencies-part-1
 ---
 
 If you've ever worked with [Gradle](https://gradle.org/) (a build tool primarily targeted at Java or Android environments), you've likely used dependencies. And if you've ever used other Java-focused build tools, such as Maven, you'll likely have noticed that dependencies in Gradle can be much more complex! Configurations? Variants? Attributes? What all is going on here, exactly? In this series of posts I will attempt to pull apart Gradle's dependency management system, answering some questions I often see about it. In this first post, I'll provide an overview of the core parts of the model.
