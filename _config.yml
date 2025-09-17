@@ -11,6 +11,11 @@ show_downloads: false
 author: Luke Bemish
 paginate: 5
 
+collections:
+  category:
+    output: true
+    permalink: /categories/:slugified_categories:output_ext
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

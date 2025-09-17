@@ -2,7 +2,8 @@
 layout: post
 title: 'Modules, Configurations, and Variants, Oh My!'
 author: Luke Bemish
-categories: Gradle Dependencies
+categories:
+  - Gradle Dependencies
 redirect_from:
     - /2025/08/02/gradle-dependencies-part-1
 ---
