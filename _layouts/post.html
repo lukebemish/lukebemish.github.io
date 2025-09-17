@@ -159,6 +159,10 @@
       const dialog = document.querySelector("#subscribe-dialog");
       const showButton = document.querySelector("#open-subscribe-dialog");
       const closeButton = document.querySelector("#close-subscribe-dialog");
+      const form = document.querySelector("#subscribe-dialog-form");
+      form.addEventListener('submit', () => {
+        dialog.close();
+      });
       showButton.addEventListener("click", () => {
         dialog.showModal();
       });
