@@ -5,7 +5,7 @@ author: Luke Bemish
 categories: Gradle Dependencies
 ---
 
-Gradle only natively supports a few metadata formats. Let's discuss a wacky but surprisingly clean approach to get it to play nice with formats it doesn't understand.
+Gradle only natively supports a few dependency metadata formats. Tools like component metadata rules, ivy pattern layouts, and component version listers can be combined to handle metadata and repositories in other formats in a way Gradle can understand.
 
 ## Dependency metadata formats
 
@@ -36,7 +36,7 @@ The `ivy` repository type is by far the most flexible within Gradle; in fact, yo
 
 Gradle has no native system for supporting repository layouts other than `ivy` and `maven`, nor any system for supporting metadata formats other that those listed above. Or, at least, not directly. It turns out that with some creativity, Gradle gives us the right toolbox to do this, however!
 
-For this post, I've picked an example of a metadata format gradle doesn't natively support: PyPI packages. [PyPI](https://pypi.org/), or the Python Package Index, is a repository of Python packages. Packages have dependencies, versions, and potentially multiple possible sets of artifacts or dependencies per version (e.g. for different platforms, or different Python versions). Overall, though, there's nothing that _shouldn't_ be possible to map onto Gradle's dependency model, if we use some creativity.
+For this post, I've picked an example of a metadata format Gradle doesn't natively support: PyPI packages. [PyPI](https://pypi.org/), or the Python Package Index, is a repository of Python packages. Packages have dependencies, versions, and potentially multiple possible sets of artifacts or dependencies per version (e.g. for different platforms, or different Python versions). Overall, though, there's nothing that _shouldn't_ be possible to map onto Gradle's dependency model, if we use some creativity.
 
 {% alert note %}
 In the last few blog posts, the examples have mostly been in Groovy, as if they were in a buildscript; this post will include mostly examples written in Java, though, as if this were a Gradle plugin. The corresponding code is available on [GitHub](https://github.com/lukebemish/pypi-in-gradle-demo).
@@ -53,7 +53,7 @@ As well as some more utilities for working with PyPI's metadata:
 
 I'm not going to go into the details of all that here, since it's not the focus of the post, but it's all on the GitHub for those curious. Next, we need to look at where the metadata and artifacts are actually coming _from_. From [the docs on the PyPI API](https://docs.pypi.org/api/json/), we can acquire metadata about a version of a package by fetching `https://pypi.org/pypi/<package>/<version>/json` (for instance, `https://pypi.org/pypi/requests/2.32.5/json`). We'll use the `artifact` metadata source to make each package metadata into a component, and then use metadata rules to fix up the metadata after the fact. For this simplified example, we'll want to pay attention to the following parts of the API response:
 - `info.requires_dist` which lists dependencies of the package, in Python's dependency format
-- `urls`, which contains information about the artifacts available for this package version. These can have their own `requires_python` requirements, and we are primatly interested in files of two `packagetype`s:
+- `urls`, which contains information about the artifacts available for this package version. We are primarily interested in files of two `packagetype`s:
   - `bdist_wheel`, which contain pre-built binary distributions as `.whl` files
   - `sdist`, which are source distributions as `.tar.gz` files
 
@@ -170,7 +170,7 @@ Let's try resolving a dependency now! I chose to map the `sdist` vs `bdist_wheel
 - `org.gradle.native.architecture=x86_64`
 - `org.gradle.category=library`
 
-to get `bdist_wheel` distributions for x86_64 linux, and we see that it resolves a dependency tree as follows:
+to get `bdist_wheel` distributions for x86_64 Linux, and we see that it resolves a dependency tree as follows:
 ```
 packages
 \--- pypi:requests:2.32.5
@@ -313,7 +313,7 @@ With this, resolution of `pypi:requests:2.32.5` now properly resolves all its tr
      \--- _extract-extension.org.files.pythonhosted:<...>/requests-<...>.whl:2.32.5 -> org.files.pythonhosted:<...>/requests-<...>:2.32.5
 ```
 
-If we inspect the resolved files, we see that they are all the expected `.whl` files for x86_64 linux:
+If we inspect the resolved files, we see that they are all the expected `.whl` files for x86_64 Linux:
 ```
 /<...>/requests-2.32.5-py3-none-any-2.32.5.whl
 /<...>/charset_normalizer-3.4.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64-3.4.3.whl

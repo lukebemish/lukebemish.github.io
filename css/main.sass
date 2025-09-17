@@ -449,21 +449,7 @@ body
   .bottom-teaser
     padding: 50px 0
     font-family: $font-sans
-    hr
-      border: 0
-      padding: 0
-      display: block
-      width: 15%
-      margin: 16px 0 16px 100px
-      border: 0px solid #ddd
-      border-top: 1px solid #ddd
     .isLeft
-      float: left
-      width: 47%
-      @include box-sizing(border-box)
-      @include respond-to(800)
-        width: 100%
-        padding-bottom: $rs*2
       .index-headline
         padding-bottom: 32px
       a
@@ -480,47 +466,14 @@ body
         background-size: cover
         border-radius: 100%
         text-indent: -9999px
-      h4
-        font-size: 18px
-        line-height: 1.1
-        font-weight: 700
-        padding: 0
-        margin: 0
       h4.author-left
         padding-left: 100px
       p
-        font-size: 14px
-        line-height: 1.3
-        font-weight: 400
-        padding: 0
-        margin: 0
         &.published
           color: #999
       p.author-left
         padding-left: 100px
-    .isRight
-      float: right
-      width: 47%
-      @include box-sizing(border-box)
-      @include respond-to(800)
-        width: 100%
-      .index-headline
-        padding-bottom: 32px
-      p
-        font-size: 14px
-        line-height: 1.3
-        font-weight: 400
-        padding: 0
-        margin: 0
-        margin-bottom: 14px
       .site-footer
-        margin: 0
-        padding: 0
-        color: #333
-        text-align: left
-        font-size: 14px
-        line-height: 1.3
-        color: #999
         a
           color: #333
           text-decoration: none
@@ -531,6 +484,80 @@ body
           padding-bottom: 18px
           font-weight: 700
           color: #333
+    .isRight
+      .index-headline
+        padding-bottom: 32px
+      .site-footer
+        a
+          color: #333
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+        .poweredby
+          display: block
+          padding-bottom: 18px
+          font-weight: 700
+          color: #333
+  .bottom-teaser
+    font-family: $font-sans
+    hr
+      border: 0
+      padding: 0
+      display: block
+      width: 15%
+      margin: 16px 0 16px 100px
+      border: 0px solid #ddd
+      border-top: 1px solid #ddd
+    .isLeft
+      float: left
+      width: 47%
+      @include box-sizing(border-box)
+      @include respond-to(800)
+        width: 100%
+        padding-bottom: $rs*2
+      h4
+        font-size: 18px
+        line-height: 1.1
+        font-weight: 700
+        padding: 0
+        margin: 0
+      p
+        font-size: 14px
+        line-height: 1.3
+        font-weight: 400
+        padding: 0
+        margin: 0
+      .site-footer
+        a
+          color: #999
+        margin: 0
+        padding: 0
+        text-align: left
+        font-size: 14px
+        line-height: 1.3
+        color: #999
+    .isRight
+      float: right
+      width: 47%
+      @include box-sizing(border-box)
+      @include respond-to(800)
+        width: 100%
+      p
+        font-size: 14px
+        line-height: 1.3
+        font-weight: 400
+        padding: 0
+        margin: 0
+        margin-bottom: 14px
+      .site-footer
+        a
+          color: #999
+        margin: 0
+        padding: 0
+        text-align: left
+        font-size: 14px
+        line-height: 1.3
+        color: #999
 .share
   text-align: right
   padding: 20px 0 0
@@ -538,7 +565,6 @@ body
   a
     text-decoration: none
     color: #bbb
-    padding-left: 12px
     .hidden
       display: none
     &:hover

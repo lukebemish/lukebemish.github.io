@@ -107,3 +107,18 @@ i.fa-fw {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+.share > .page-social-link, .share-header > .page-social-link {
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+}
+.page-social-link.subscribe {
+    background-color: #bbb;
+    color: #fff;
+    font-size: 0.75em;
+    padding: 0.2em 0.5em;
+    border-radius: 1em;
+}
+.page-social-link.subscribe:hover {
+    background-color: #333;
+    color: #fff;
+}

@@ -81,7 +81,7 @@
             {% endfor %}
           {% endif %}
           {% if previous_post %}
-            <p>Previously: <a href="{{ previous_post.url }}">{{ previous_post.title }}</a></p>
+            <p class="category-navigation-links">Previously: <a href="{{ previous_post.url }}">{{ previous_post.title }}</a></p>
           {% endif %}
           {% include toc.html html=content %}
           {% capture anchor_body %}
@@ -89,7 +89,7 @@
           {% endcapture %}
           {% include anchor_headings.html html=content anchorBody=anchor_body anchorAttrs='class="anchor-wrapper" aria-hidden="true"' beforeHeading=true %}
           {% if next_post %}
-            <p>Next: <a href="{{ next_post.url }}">{{ next_post.title }}</a></p>
+            <p class="category-navigation-links">Next: <a href="{{ next_post.url }}">{{ next_post.title }}</a></p>
           {% endif %}
         </section>
         <footer class="post-footer">
@@ -102,6 +102,7 @@
                 </a>
               {% endif %}
             {% endfor %}
+            <a id="open-subscribe-dialog" class="page-social-link subscribe">Subscribe</a>
           </section>
         </footer>
         <div class="bottom-teaser cf">
@@ -150,6 +151,21 @@
         <a href={{ "/" | prepend: site.baseurl }} class="btn">Back to Overview</a>
       </div>
     </div>
+    <dialog id="subscribe-dialog">
+      <a style="float: right" id="close-subscribe-dialog"><i class="fa-solid fa-xmark"></i></a>
+      {% include follow_it.html %}
+    </dialog>
+    <script>
+      const dialog = document.querySelector("#subscribe-dialog");
+      const showButton = document.querySelector("#open-subscribe-dialog");
+      const closeButton = document.querySelector("#close-subscribe-dialog");
+      showButton.addEventListener("click", () => {
+        dialog.showModal();
+      });
+      closeButton.addEventListener("click", () => {
+        dialog.close();
+      });
+    </script>
     {% include javascripts.html %}
   </body>
 </html>

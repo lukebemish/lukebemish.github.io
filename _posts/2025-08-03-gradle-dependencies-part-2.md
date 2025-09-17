@@ -5,7 +5,7 @@ author: Luke Bemish
 categories: Gradle Dependencies
 ---
 
-Let's discuss how Gradle handles dependency artifacts, the consequences of Gradle's support for Maven-style dependencies involving classifiers, and Gradle's own solutions to the same problem.
+Once Gradle resolves variants, it locates artifact associated with those variants. However, since Gradle's support for Maven-style dependencies involving classifiers has some potentially unpleasant consequences in this process, Gradle has some of its own solutions to the same problem.
 
 ## Artifact selection
 

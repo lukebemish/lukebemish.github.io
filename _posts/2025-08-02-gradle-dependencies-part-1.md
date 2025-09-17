@@ -7,7 +7,7 @@ categories: Gradle Dependencies
 
 If you've ever worked with [Gradle](https://gradle.org/) (a build tool primarily targeted at Java or Android environments), you've likely used dependencies. And if you've ever used other Java-focused build tools, such as Maven, you'll likely have noticed that dependencies in Gradle can be much more complex! Configurations? Variants? Attributes? What all is going on here, exactly? In this series of posts I will attempt to pull apart Gradle's dependency management system, answering some questions I often see about it. In this first post, I'll provide an overview of the core parts of the model.
 
-Gradle is configured using buildscripts, (hopefully) small files specifying the details of your build, written in Kotlin or Groovy. Throughout this post (and the following posts) I'll provide a few examples; unless otherwise specified, I'll be talking about Gradle 9.0.0, the most recent version at the time of this writing, and will provide my examples in Groovy (though the Kotlin version should be fairly similar, if not identical). I may also provide some examples written in Java; this is what you might expect to see inside of a Gradle plugin, a third-party extension to Gradle implementing some functionality that could consume part of the dependency model.
+Gradle is configured using buildscripts, (hopefully) small files specifying the details of your build, written in Kotlin or Groovy. Throughout this post (and the following posts) I'll provide a few examples; unless otherwise specified, I'll be talking about Gradle 9.0.0, the most recent version at the time of this writing, and will provide my examples in Groovy (though the Kotlin version should be fairly similar, if not identical). I may also provide some examples written in Java; this is what you might expect to see inside a Gradle plugin, a third-party extension to Gradle implementing some functionality that could consume part of the dependency model.
 
 
 ## What's in a dependency?
@@ -40,7 +40,7 @@ The final piece of the coordinates, the version, defines a _required_ version. G
 - **prefer**: the weakest requirement; gives a suggestion for the resolved version, but is weaker than `strictly` or `require`.
 - **reject**: marks certain versions as _not_ resolvable.
 
-Of note, `require` and `strictly` cannot be used together, and both `require` and `strictly` must be declared before `reject`. With the exception of `prefer`, these may all be used with version ranges (or, in Gradle terminology, dynamic versions). For instance, the following:
+Of note, `require` and `strictly` cannot be used together, and both `require` and `strictly` must be declared before `reject`. Excepting `prefer`, these may all be used with version ranges (or, in Gradle terminology, dynamic versions). For instance, the following:
 
 ```gradle
 dependencies {
@@ -125,7 +125,7 @@ compileClasspath - Compile classpath for source set 'main'.
 When variants are resolved, the process is slightly more complex than described above; notably, Gradle won't even bother to look for a variant if it knows, due to a component found at an earlier level of resolution, the component in question would be upgraded. This doesn't have much of an impact, in practice, but _does_ mean that in some cases you may resolve a tree where certain transitive dependencies don't exist in your available repositories, if those dependencies are upgraded at an earlier level to versions that do.
 {% endalert %}
 
-Components model a single package, in some form. Variants model multiple the options available once we've selected a component. For instance, are we looking for something to compile against, or something to run with? Are we looking for a binary library, or its sources? Variants contain both dependencies and artifacts. When a project is published, variants are produced from configurations. For instance, if we take a look at the publishing for `gizmo:gadget`:
+Components model a single package, in some form. Variants model the options available once we've selected a component. For instance, are we looking for something to compile against, or something to run with? Are we looking for a binary library, or its sources? Variants contain both dependencies and artifacts. When a project is published, variants are produced from configurations. For instance, if we take a look at the publishing for `gizmo:gadget`:
 ```gradle
 dependencies {
     api("foo:bar:1.1.0")
