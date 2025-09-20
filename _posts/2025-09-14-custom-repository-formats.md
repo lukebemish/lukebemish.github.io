@@ -93,7 +93,7 @@ This repository:
 
 With this, you can depend on `pypi:requests:2.32.5`; Gradle will fetch `https://pypi.org/pypi/requests/2.32.5/json`, and create a component with a single variant, that contains the fetched JSON file as its artifact. Except that Gradle treats it as a `.jar` file, as that's the default artifact type. We'll fix that later! At least now we can map module component identifiers to PyPI packages, in a way that can determine whether those packages exist.
 
-The URLs for artifacts of PyPI packages point to locations within `https://files.pythonhosted.org/packages/`; this will cause some slight complexity for us. Repositories that Gradle normally works with generally have one URL, but we need to deal with stuff on more than one domain. Ivy repositories cna do this, using different domains for the metadata pattern and the artifact pattern; however, by using the `artifact` metadata source we've already required that the artifact pattern use the `https://pypi.org/`-based URL. We'll solve this down the road with a second repository.
+The URLs for artifacts of PyPI packages point to locations within `https://files.pythonhosted.org/packages/`; this will cause some slight complexity for us. Repositories that Gradle normally works with generally have one URL, but we need to deal with stuff on more than one domain. Ivy repositories can do this, using different domains for the metadata pattern and the artifact pattern; however, by using the `artifact` metadata source we've already required that the artifact pattern use the `https://pypi.org/`-based URL. We'll solve this down the road with a second repository.
 
 ### Fixing the metadata
 
