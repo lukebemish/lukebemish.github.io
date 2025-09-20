@@ -108,7 +108,11 @@ body
     letter-spacing: -2px
     outline: 0
     line-height: 50px
-    word-break: break-word
+    @include respond-to(800)
+      -webkit-hyphens: auto
+      -moz-hyphens: auto
+      hyphens: auto
+    overflow-wrap: break-word
     color: #333
   .blog-description
     margin: 0 0 20px
@@ -232,6 +236,12 @@ body
     &:hover
       color: #333
 .post
+  @include respond-to(800)
+    -webkit-hyphens: auto
+    -moz-hyphens: auto
+    hyphens: auto
+    hyphenate-limit-chars: auto 4 auto
+  overflow-wrap: break-word
   .article-image
     position: absolute
     background-color: #000
@@ -388,10 +398,6 @@ body
       margin: 0
       padding-bottom: 30px
       color: #333
-      -webkit-hyphens: auto
-      -moz-hyphens: auto
-      hyphens: auto
-      overflow-wrap: break-word
     a
       color: #333
       text-decoration: underline
@@ -443,10 +449,6 @@ body
       margin-left: 30px
       margin-bottom: 12px
       padding-top: 2px
-      -webkit-hyphens: auto
-      -moz-hyphens: auto
-      hyphens: auto
-      overflow-wrap: break-word
       p
         padding: 0 0 golden-ratio(1rem,  1)
     ol li
@@ -608,7 +610,12 @@ body
       letter-spacing: -2px
       outline: 0
       line-height: 50px
-      word-break: break-word
+      @include respond-to(800)
+        -webkit-hyphens: auto
+        -moz-hyphens: auto
+        hyphens: auto
+        hyphenate-limit-chars: auto 4 auto
+      overflow-wrap: break-word
     .blog-description
       margin: 0 0 50px
       padding: 0 $rs*2
@@ -651,6 +658,7 @@ code
 
 code
   padding: 1px 5px
+  overflow-wrap: break-word
 
 pre
   padding: 8px 12px
@@ -659,5 +667,6 @@ pre
     border: 0
     padding-right: 0
     padding-left: 0
+    overflow-wrap: none
 
 @import 'custom'
