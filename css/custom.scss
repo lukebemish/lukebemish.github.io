@@ -111,15 +111,18 @@ i.fa-fw {
     margin-left: 0.1em;
     margin-right: 0.1em;
 }
-.page-social-link.subscribe, .category-link {
+.share-header a.page-social-link.subscribe, .page-social-link.subscribe, .category-link {
     background-color: #bbb;
     color: #fff;
-    font-size: 0.75em;
+    font-size: 12px;
     padding: 0.2em 0.5em;
     border-radius: 1em;
     text-decoration: none;
+    letter-spacing: normal;
+    font-weight: normal;
+    line-height: normal;
 }
-.page-social-link.subscribe:hover, .category-link:hover {
+.share-header a.page-social-link.subscribe:hover, .page-social-link.subscribe:hover, .category-link:hover {
     background-color: #333;
     color: #fff;
     text-decoration: none;
