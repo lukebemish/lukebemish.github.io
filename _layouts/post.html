@@ -50,6 +50,7 @@
                     </a>
                   {% endif %}
                 {% endfor %}
+                <a class="open-subscribe-dialog page-social-link subscribe">Subscribe</a>
               </span>
             </div>
           </div>
@@ -105,7 +106,7 @@
                 </a>
               {% endif %}
             {% endfor %}
-            <a id="open-subscribe-dialog" class="page-social-link subscribe">Subscribe</a>
+            <a class="open-subscribe-dialog page-social-link subscribe">Subscribe</a>
           </section>
         </footer>
         <div class="bottom-teaser cf">
@@ -160,15 +161,15 @@
     </dialog>
     <script>
       const dialog = document.querySelector("#subscribe-dialog");
-      const showButton = document.querySelector("#open-subscribe-dialog");
+      const showButtons = document.querySelectorAll(".open-subscribe-dialog");
       const closeButton = document.querySelector("#close-subscribe-dialog");
       const form = document.querySelector("#subscribe-dialog-form");
       form.addEventListener('submit', () => {
         dialog.close();
       });
-      showButton.addEventListener("click", () => {
+      showButtons.forEach((showButton)=>showButton.addEventListener("click", () => {
         dialog.showModal();
-      });
+      }));
       closeButton.addEventListener("click", () => {
         dialog.close();
       });
