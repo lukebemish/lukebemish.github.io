@@ -18,7 +18,11 @@
           <div class="post-meta">
             <h1 class="post-title">{{ page.title }}</h1>
             <div class="cf post-meta-text">
+              {% if site.author_image %}
               <div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})">Blog Logo</div>
+              {% elsif page.gravatar %}
+              <img class="author-image" src="https://gravatar.com/avatar/{{ page.gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
+              {% endif %}
               <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{ site.author }}</h4>
               on
               <time datetime="{{ page.date | date: "%F %R" }}">{{ page.date | date_to_string }}</time>
@@ -36,6 +40,8 @@
             <div class="cf post-meta-text">
               {% if site.author_image %}
               <div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})">Blog Logo</div>
+              {% elsif page.gravatar %}
+              <img class="author-image" src="https://gravatar.com/avatar/{{ page.gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
               {% endif %}
               <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{ page.author }}</h4>
               on
@@ -112,8 +118,13 @@
         <div class="bottom-teaser cf">
           <div class="isLeft">
             <footer class="author">
-              <h4>{{ site.author }}</h4>
-              <p class="published{%if site.author_image %}author-left{% endif %}">Published <time datetime="{{ page.date | date: "%F %R" }}">{{ page.date | date_to_string }}</time></p>
+              {% if site.author_image %}
+              <div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})">Blog Logo</div>
+              {% elsif page.gravatar %}
+              <img class="author-image" src="https://gravatar.com/avatar/{{ page.gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
+              {% endif %}
+              <h4 class="{%if site.author_image or page.gravatar %}author-left{% endif %}">{{ site.author }}</h4>
+              <p class="published{%if site.author_image or page.gravatar %} author-left{% endif %}">Published <time datetime="{{ page.date | date: "%F %R" }}">{{ page.date | date_to_string }}</time></p>
             </footer>
           </div>
           {{/post}}
