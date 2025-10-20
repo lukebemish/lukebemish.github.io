@@ -20,7 +20,7 @@ id: index
     <div class="custom-links">
       {% for social in site.social %}
         {% if social.url %}
-            <a class="icon-{{ social.icon }} page-social-link" href="{{ social.url }}" {% if social.desc %} title="{{ social.desc }}"{% endif %}>
+            <a class="icon-{{ social.icon }} page-social-link" href="{{ social.url }}"{% if social.desc %} title="{{ social.desc }}"{% endif %}{% if social.me %} rel="me"{% endif %}>
               <i class="fa-{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %} fa-{{ social.icon }} fa-fw"></i>
             </a>
         {% endif %}
