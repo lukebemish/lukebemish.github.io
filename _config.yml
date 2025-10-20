@@ -50,6 +50,10 @@ sass:
 highlighter: rouge
 gist:
   noscript: false
+authors:
+  "Luke Bemish":
+    gravatar: lukebemish@lukebemish.dev
+    fediverse: "@lukebemish@mastodon.social"
 social:
   - icon: envelope
     icon_category: solid

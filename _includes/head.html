@@ -26,8 +26,8 @@
     {% endif %}
   {% endif %}
 
-  {% if page.id == 'index' %}
-    <meta name="follow.it-verification-code" content="Z2lCbC3YZ071waP2KJL5"/>
+  {% if site.authors[page.author]?.fediverse %}
+  <meta name="fediverse:creator" content="{{site.authors[page.author].fediverse}}">
   {% endif %}
   
   <meta property="og:site_name" content="{{ site.title }}" />
