@@ -54,14 +54,19 @@ social:
   - icon: envelope
     icon_category: solid
     url: mailto:lukebemish@lukebemish.dev
+    me: true
   - icon:	github
     url:	https://github.com/lukebemish
+    me: true
   - icon: mastodon
     url: https://mastodon.social/@lukebemish
+    me: true
   - icon: linkedin
     url: https://www.linkedin.com/in/luke-bemish/
+    me: true
     share_url: https://www.linkedin.com/sharing/share-offsite/?
     share_link: url=
   - icon: rss
     icon_category: solid
+    me: false
     url: /feed.xml
