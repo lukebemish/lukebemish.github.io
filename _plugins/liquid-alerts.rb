@@ -20,10 +20,10 @@ module LiquidAlerts
             site = context.registers[:site]
             markdown= site.find_converter_instance(::Jekyll::Converters::Markdown)
             text = super
-            "<div class='markdown-alert markdown-alert-#{@type}'>" \
+            "<blockquote class='markdown-alert markdown-alert-#{@type}'>" \
                 "<p class='markdown-alert-title'>#{Octicons::Octicon.new(ADMONITION_ICONS[@type]).to_svg} #{@type.capitalize}</p>" \
                 "#{markdown.convert(text.gsub(/^#{$/}/, "").gsub(/#{$/}$/, ""))}" \
-            "</div>"
+            "</blockquote>"
         end
     end
 end
