@@ -5,7 +5,8 @@ module GoatDiagrams
         def render(context)
             text = super
             outText = "<div class=\"goat-svg\">"+render_with_command('goat -sls currentColor -sds currentColor', text.gsub(/^#{$/}/, "").gsub(/#{$/}$/, ""))+"</div>"
-            outText.gsub(/svg xmlns='http:\/\/www\.w3\.org\/2000\/svg' version='1\.1' height='(\d+)' width='(\d+)'/) { |m| "svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='100%' viewBox='0 0 #{$2} #{$1}' preserveAspectRatio='xMidYMid'" }
+            outText = outText.gsub(/svg xmlns='http:\/\/www\.w3\.org\/2000\/svg' version='1\.1' height='(\d+)' width='(\d+)'/) { |m| "svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='100%' viewBox='0 0 #{$2} #{$1}' preserveAspectRatio='xMidYMid'" }
+            outText.gsub(/<text /, '<text fill="currentColor" ')
         end
 
         def render_with_command(command, contents)
