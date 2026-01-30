@@ -56,7 +56,7 @@ dependencies {
 }
 ```
 
-Will tell Gradle that it may resolve any version from `1.0.0` (inclusive) to `2.0.0` (exclusive), but should prefer `1.2.3` if nothing else upgrades the version. Gradle's dependency version declarations have a fairly extensive syntax, which I will not go into further here, but you can read more [in the Gradle docs](docs.gradle.org/9.0.0/userguide/dependency_versions.html).
+Will tell Gradle that it may resolve any version from `1.0.0` (inclusive) to `2.0.0` (exclusive), but should prefer `1.2.3` if nothing else upgrades the version. Gradle's dependency version declarations have a fairly extensive syntax, which I will not go into further here, but you can read more [in the Gradle docs](https://docs.gradle.org/9.0.0/userguide/dependency_versions.html).
 
 
 ## Variants and configuration roles
