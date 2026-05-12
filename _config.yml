@@ -71,6 +71,9 @@ social:
     me: true
     share_url: https://www.linkedin.com/sharing/share-offsite/?
     share_link: url=
+  - icon: orcid
+    url: https://orcid.org/0009-0006-8214-8050
+    me: true
   - icon: rss
     icon_category: solid
     me: false
