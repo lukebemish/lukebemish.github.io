@@ -9,7 +9,7 @@ categories:
 I noted [in a previous post]({% post_url 2026-02-22-gradle-shorts-1-publication-coordinates %}) that Gradle does not play
 nice with multiple published `SoftwareComponent`s in a single project; in particular, this causes issues when calculating the
 coordinates of the project in question for publishing project dependencies, and it is therefore not feasible or desired to
-relocate a publication by setting `artifactId` or `groupId`.
+relocate a secondary publication by setting `artifactId` or `groupId` as a means to creating an "alias".
 
 It turns out, there's some fun subtlety here! Gradle's `PublicationInternal` type, an internal protocol type used by
 `MavenPublication` and `IvyPublication`'s implementations, has a [`setAlias(boolean)` method](https://github.com/gradle/gradle/blob/0f3d2550185f6d16c9a0aa58ec4c4c1025197a27/platforms/software/publish/src/main/java/org/gradle/api/publish/internal/PublicationInternal.java#L34). Setting this property
