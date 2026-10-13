@@ -1,0 +1,31 @@
+{%- if page.collection == "posts" -%}
+{%- if page.categories and page.categories.size != 0 %}
+{%- assign cat = page.categories[0] %}
+{%- assign cat_list = site.categories[cat] %}
+{%- for post in cat_list %}
+    {% if post.url == page.url %}
+    {% assign pOffset = forloop.index0 | minus: 1 %}
+    {% assign nOffset = pOffset | plus: 2 %}
+    {% if forloop.first == false %}
+        {% assign next_post = cat_list[pOffset] %}
+    {% endif %}
+    {% if forloop.last == false %}
+        {% assign previous_post = cat_list[nOffset] %}
+    {% endif %}
+    {% break %}
+    {% endif %}
+{% endfor %}
+{%- endif %}
+{%- if previous_post or next_post %}
+<hr>    
+<div class="column-center post-paginate" role="navigation">
+    {%- if previous_post -%}
+        <a class="alt-link" href={{ previous_post.url }}>{% octicon chevron-left height:22 %} Previous</a>
+    {%- endif -%}
+    <div class="expand"></div>
+    {%- if next_post -%}
+        <a class="alt-link" href={{ next_post.url }}>Next {% octicon chevron-right height:22 %}</a>
+    {%- endif %}
+</div>
+{%- endif %}
+{%- endif -%}

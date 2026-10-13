@@ -1,0 +1,33 @@
+{%- if page.collection == "posts" -%}
+{% if site.author_image or site.authors[page.author]?.gravatar %}
+<div class="author-row">
+{% if site.author_image %}
+<div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})">Blog Logo</div>
+{% elsif site.authors[page.author]?.gravatar %}
+<img class="author-image" src="https://gravatar.com/avatar/{{ site.authors[page.author].gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
+{% endif %}
+<strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{ page.author }}</strong>
+on
+<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+<span class="share-header">
+{% for social in site.social %}
+    {% if social.share_url != null %}
+    <a class="alt-link icon-{{ social.icon }} page-social-link" href="{{ social.share_url }}{% if social.share_title %}{{ social.share_title }}{{page.title | cgi_escape}}{% endif %}{{ social.share_link }}{{site.url}}{{site.baseurl}}{{page.url}}"
+        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+        <i class="fa-{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %} fa-{{ social.icon }} fa-fw"></i>
+    </a>
+    {% endif %}
+{% endfor %}
+</span>
+</div>
+{% endif %}
+
+<div class="category-links"><small>
+{% assign firstcategory = true %}
+{% for category in page.categories -%}
+{%- unless firstcategory %} | {% endunless -%}
+{%- assign firstcategory = false -%}
+<a class="alt-link category-link" href="/categories/{{ category | slugify }}.html">{{category}}</a>
+{%- endfor %}
+</small></div>
+{%- endif -%}

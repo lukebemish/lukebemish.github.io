@@ -45,9 +45,8 @@ dependencies {
 ```
 We see that we're telling Gradle that this transform takes artifacts with the attribute `artifactType=jar` and produces artifacts with the attribute `artifactType=transformed-jar`
 
-{% alert note %}
-Hmm, that attribute name looks different from most we've seen... it's a Gradle-built-in attribute, but it isn't in the `org.gradle` namespace. Something is fishy here! We'll get back to that; it turns out that this example is not as nice as it seems.
-{% endalert %}
+> [!NOTE]
+> Hmm, that attribute name looks different from most we've seen... it's a Gradle-built-in attribute, but it isn't in the `org.gradle` namespace. Something is fishy here! We'll get back to that; it turns out that this example is not as nice as it seems.
 
 And finally, you request that attribute in the configuration you're resolving:
 ```gradle

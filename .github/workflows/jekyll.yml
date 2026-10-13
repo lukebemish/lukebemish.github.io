@@ -19,6 +19,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  packages: read
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -34,12 +35,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Ruby
-        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
-        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        uses: ruby/setup-ruby@v1
+        env:
+          BUNDLE_HTTPS://RUBYGEMS__PKG__GITHUB__COM/LUKEBEMISHPROJECTS/: "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}"
         with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+          ruby-version: '4.0'
+          bundler-cache: true
+          cache-version: 0
       - name: Setup Go
         uses: actions/setup-go@v5
       - name: Setup GoAT

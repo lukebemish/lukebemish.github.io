@@ -1,0 +1,11 @@
+<script src="https://kit.fontawesome.com/ddd3d23e6a.js" crossorigin="anonymous"></script>
+<script src="https://secure.gravatar.com/js/gprofiles.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  Gravatar.init();
+});
+</script>
+{%- if site.authors[page.author]?.fediverse -%}
+<meta name="fediverse:creator" content="{{site.authors[page.author].fediverse}}">
+{%- endif -%}
+<link rel="stylesheet" href="{{ '/assets/css/extra.css' | relative_url }}">

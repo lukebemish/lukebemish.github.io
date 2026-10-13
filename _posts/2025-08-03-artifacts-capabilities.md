@@ -32,21 +32,20 @@ Artifacts
 ```
 The `apiElements` configuration has the `gadget-2.0.0.jar` attached. This file is produced by some task (in this case, `:jar`), and will be published alongside the component's metadata. When the `apiElements` variant is selected during resolution, Gradle will then (normally) pick that file, and expose it in the resulting `FileCollection`.
 
-{% alert caution %}
-When publishing extra artifacts other than those Gradle sets up by default, it's tempting to manually add them to the publication. After all, Gradle even has a method in the publishing DSL for this:
-```gradle
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            // Don't do this!!!
-            artifact project.tasks.makeMySpecialArtifact
-        }
-    }
-}
-```
-This is, generally speaking, a bad idea (and I'll discuss several alternatives shortly)! An advantage of Gradle's metadata format for published modules is that everything you can access is defined via a variant, unlike in Maven or the like, where published artifacts may or may not have any information about them in the `.pom` file (see, `sources` jars).
-{% endalert %}
+> [!CAUTION]
+> When publishing extra artifacts other than those Gradle sets up by default, it's tempting to manually add them to the publication. After all, Gradle even has a method in the publishing DSL for this:
+> ~~~ gradle
+> publishing {
+>     publications {
+>         mavenJava(MavenPublication) {
+>             from components.java
+>             // Don't do this!!!
+>             artifact project.tasks.makeMySpecialArtifact
+>         }
+>     }
+> }
+> ~~~
+> This is, generally speaking, a bad idea (and I'll discuss several alternatives shortly)! An advantage of Gradle's metadata format for published modules is that everything you can access is defined via a variant, unlike in Maven or the like, where published artifacts may or may not have any information about them in the `.pom` file (see, `sources` jars).
 
 We can attach new artifacts to a configuration using the `artifacts` DSL:
 ```gradle
@@ -111,9 +110,8 @@ dependencies {
 ```
 And the first thing that we should note here is that artifact selectors have no effect on variant selection, and this can have somewhat obnoxious consequences.
 
-{% alert note %}
-I refer here to these as "third-party" artifact selectors, even though this terminology isn't used anywhere in Gradle's docs; _however_, it _is_ used in the published metadata for Gradle modules. If you publish a component with a dependency that uses an extension or classifier, that information is stored in a `thirdPartyCompatibility.artifactSelector` field.
-{% endalert %}
+> [!NOTE]
+> I refer here to these as "third-party" artifact selectors, even though this terminology isn't used anywhere in Gradle's docs; _however_, it _is_ used in the published metadata for Gradle modules. If you publish a component with a dependency that uses an extension or classifier, that information is stored in a `thirdPartyCompatibility.artifactSelector` field.
 
 ### Why artifact selectors sorta suck
 Let's consider a perhaps not uncommon case where we might see an artifact selector in use. Say we have the same dependency tree from the last post for `gizmo:gadget`:
@@ -280,9 +278,8 @@ Resolving `compileClasspath` with these dependencies might look something like t
 {% endgoat %}
 Gradle, it turns out, doesn't actually have any issue with ending up with more than one variant from the same component during resolution! Each dependency must end up mapped to exactly one variant, but the total tree could have multiple from the same component. What Gradle _does_ enforce is that any given _capability_ appears in the resolved tree at most once; since capabilities are a way of expressing "what stuff does this variant contain", this lets you ensure you don't end up with duplicate libraries on the classpath.
 
-{% alert note %}
-Gradle enforces uniqueness of capabilities even when the variants come from different modules; this is useful for ensuring that different modules providing the same API conflict with each other. For instance, you might imagine that multiple vendors all produce implementations of the same API, but distribute them under different module identifiers (in their own groups); they can communicate this to consumers by giving their modules' variants an extra capability: some standardized identifier for the API.
-{% endalert %}
+> [!NOTE]
+> Gradle enforces uniqueness of capabilities even when the variants come from different modules; this is useful for ensuring that different modules providing the same API conflict with each other. For instance, you might imagine that multiple vendors all produce implementations of the same API, but distribute them under different module identifiers (in their own groups); they can communicate this to consumers by giving their modules' variants an extra capability: some standardized identifier for the API.
 
 Adding capabilities to outgoing variants is as simple as adding them to the backing configuration:
 ```gradle
@@ -309,9 +306,8 @@ java {
 }
 ```
 
-{% alert note %}
-The feature name used when you register the feature isn't _quite_ exactly the capability suffix that is published; namely, it's converted from `camelCase` to `kebab-case`. So, `registerFeature("myFeature")` will publish a capability with the suffix `-my-feature`, and other places that refer to the feature name, such as requiring it on a dependency, will use the `kebab-case` form.
-{% endalert %}
+> [!NOTE]
+> The feature name used when you register the feature isn't _quite_ exactly the capability suffix that is published; namely, it's converted from `camelCase` to `kebab-case`. So, `registerFeature("myFeature")` will publish a capability with the suffix `-my-feature`, and other places that refer to the feature name, such as requiring it on a dependency, will use the `kebab-case` form.
 
 When we register a feature, Gradle will set up everything needed to publish all the equivalents of the built-in variants, but with a capability derived from the feature name (in this case, `gizmo:gadget-baz`), with the same version as the project. Unlike using a classifier, a feature variant can have its own transitive dependencies; for instance, we can make the `baz` feature depend on the main feature:
 ```gradle

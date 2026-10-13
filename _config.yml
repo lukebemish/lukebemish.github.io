@@ -5,8 +5,6 @@ description: >-
 baseurl: ""
 url: "https://lukebemish.dev"
 domain: "lukebemish.dev"
-github_username: lukebemish
-repository: lukebemish/lukebemish.github.io
 show_downloads: false
 author: Luke Bemish
 paginate: 5
@@ -16,23 +14,8 @@ collections:
     output: true
     permalink: /categories/:slugified_categories:output_ext
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-octicons
-  - jekyll-seo-tag
-  - jekyll-coffeescript
-  - jekyll-commonmark-ghpages
-  - jekyll-gist
-  - jekyll-github-metadata
-  - jekyll-paginate
-  - jekyll-relative-links
-  - jekyll-optional-front-matter
-  - jekyll-readme-index
-  - jekyll-default-layout
-  - jekyll-titles-from-headings
-  - jekyll-redirect-from
-  - jekyll-webp
+theme: unified-docs-theme
+
 markdown: kramdown
 permalink: /:year/:month/:day/:title:output_ext
 kramdown:
@@ -47,7 +30,8 @@ kramdown:
 exclude:
   - CNAME
 sass:
-  style: compressed
+  quiet_deps: true
+  silence_deprecations: [import]
 highlighter: rouge
 gist:
   noscript: false
@@ -82,3 +66,8 @@ webp:
   enabled: true
   img_dir: ["/assets/img/"]
   nested: true
+
+unified-docs-theme:
+  nav_pages:
+    - page: index.html
+      title: Home

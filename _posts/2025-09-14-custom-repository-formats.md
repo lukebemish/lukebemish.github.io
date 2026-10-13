@@ -33,17 +33,15 @@ repositories {
 }
 ```
 
-{% alert note %}
-The `ivy` repository type is by far the most flexible within Gradle; in fact, you can even specify maven repositories as special ivy repositories of a sort. For this reason I'll be using `ivy` repositories throughout this example; note that you don't actually need to know anything about ivy for this.
-{% endalert %}
+> [!NOTE]
+> The `ivy` repository type is by far the most flexible within Gradle; in fact, you can even specify maven repositories as special ivy repositories of a sort. For this reason I'll be using `ivy` repositories throughout this example; note that you don't actually need to know anything about ivy for this.
 
 Gradle has no native system for supporting repository layouts other than `ivy` and `maven`, nor any system for supporting metadata formats other that those listed above. Or, at least, not directly. It turns out that with some creativity, Gradle gives us the right toolbox to do this, however!
 
 For this post, I've picked an example of a metadata format Gradle doesn't natively support: PyPI packages. [PyPI](https://pypi.org/), or the Python Package Index, is a repository of Python packages. Packages have dependencies, versions, and potentially multiple possible sets of artifacts or dependencies per version (e.g. for different platforms, or different Python versions). Overall, though, there's nothing that _shouldn't_ be possible to map onto Gradle's dependency model, if we use some creativity.
 
-{% alert note %}
-In the last few blog posts, the examples have mostly been in Groovy, as if they were in a buildscript; this post will include mostly examples written in Java, though, as if this were a Gradle plugin. The corresponding code is available on [GitHub](https://github.com/lukebemish/pypi-in-gradle-demo).
-{% endalert %}
+> [!NOTE]
+> In the last few blog posts, the examples have mostly been in Groovy, as if they were in a buildscript; this post will include mostly examples written in Java, though, as if this were a Gradle plugin. The corresponding code is available on [GitHub](https://github.com/lukebemish/pypi-in-gradle-demo).
 
 ## Building a custom format
 
@@ -60,9 +58,8 @@ I'm not going to go into the details of all that here, since it's not the focus 
   - `bdist_wheel`, which contain pre-built binary distributions as `.whl` files
   - `sdist`, which are source distributions as `.tar.gz` files
 
-{% alert note %}
-Some PyPI packages make use of "extras", ways of specifying special sets of dependencies pulled in. The environment marker system also supports plenty more attributes than I address here. This example is meant as a proof-of-concept, and demonstration of the general approach for mapping foreign metadata onto Gradle; while you could imagine representing the "extra" data with capabilities, or implementing attributes for the rest of the environment markers and supporting the full grammar of the dependency specifiers, I haven't done so here for brevity.
-{% endalert %}
+> [!NOTE]
+> Some PyPI packages make use of "extras", ways of specifying special sets of dependencies pulled in. The environment marker system also supports plenty more attributes than I address here. This example is meant as a proof-of-concept, and demonstration of the general approach for mapping foreign metadata onto Gradle; while you could imagine representing the "extra" data with capabilities, or implementing attributes for the rest of the environment markers and supporting the full grammar of the dependency specifiers, I haven't done so here for brevity.
 
 ### Ivy layout patterns
 
@@ -164,9 +161,8 @@ getResources().withResource(String.format("%s/%s/json", id.getName(), id.getVers
 
 As noted, I've skipped over all the boring details of parsing the metadata, translating python version ranges into gradle version ranges, and so forth (though if you're curious, my implementation is available on the [GitHub repo](https://github.com/lukebemish/pypi-in-gradle-demo)). The general idea here is to attach the necessary dependencies to each variant based on the metadata; the version ranges are turned into `strictly` version ranges, as the version ranges in PyPI's metadata represent exact versions that the transitive dependencies must match, not ranges that could possibly be upgraded.
 
-{% alert note %}
-Why do I have separate variants set up for the source distributions for each platform when the actual source is platform-independent? Well, while the artifact is the same for each of those, the transitive dependencies may be platform-specific. This wouldn't be necessary if you decided that the source distribution shouldn't expose its transitive dependencies, instead, like java sources jars normally are.
-{% endalert %}
+> [!NOTE]
+> Why do I have separate variants set up for the source distributions for each platform when the actual source is platform-independent? Well, while the artifact is the same for each of those, the transitive dependencies may be platform-specific. This wouldn't be necessary if you decided that the source distribution shouldn't expose its transitive dependencies, instead, like java sources jars normally are.
 
 Let's try resolving a dependency now! I chose to map the `sdist` vs `bdist_wheel` distinction first and foremost by using `org.gradle.category`, so we'll resolve `pypi:requests:2.32.5` with the attributes
 - `org.gradle.native.operatingSystem=linux`
@@ -269,9 +265,8 @@ getResources().withResource(String.format("%s/%s/json", id.getName(), id.getVers
 });
 ```
 
-{% alert note %}
-Plenty of PyPI packages have different artifacts for different Python versions. To handle this properly, you'd want to add an attribute representing the target python version, in some form, and then create variants for the different provided versions. This is once again skipped here for the sake of brevity, and I instead just only attach the first matching artifact I find for each platform.
-{% endalert %}
+> [!NOTE]
+> Plenty of PyPI packages have different artifacts for different Python versions. To handle this properly, you'd want to add an attribute representing the target python version, in some form, and then create variants for the different provided versions. This is once again skipped here for the sake of brevity, and I instead just only attach the first matching artifact I find for each platform.
 
 Now, if we resolve a dependency on this package (excluding any failing `pypi` transitive dependencies for now), we see that it properly resolves the expected `.whl` file.
 

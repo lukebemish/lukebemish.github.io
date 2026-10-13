@@ -1,0 +1,42 @@
+.author-image {
+    width: 1lh;
+    height: 1lh;
+    border-radius: 100%;
+    margin-left: 0px;
+    float: left;
+    margin-right: 0.25lh;
+}
+
+.author-row {
+    margin-top: 0.5rem;
+}
+
+.category-links {
+    margin-top: 0.5rem;
+}
+
+.share-header {
+    float: right;
+}
+
+.octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: currentColor;
+    overflow: visible;
+}
+
+.expand {
+    flex: 1;
+}
+
+.post-paginate {
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
