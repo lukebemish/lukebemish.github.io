@@ -37,7 +37,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         env:
-          BUNDLE_RUBYGEMS__PKG__GITHUB__COM: "${{ secrets.GITHUB_TOKEN }}:x-oauth-basic"
+          "BUNDLE_HTTPS://RUBYGEMS__PKG__GITHUB__COM/LUKEBEMISHPROJECTS/": "${{ secrets.GITHUB_TOKEN }}"
         with:
           ruby-version: '4.0'
           bundler-cache: true
