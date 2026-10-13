@@ -34,11 +34,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configure Bundler for GitHub Packages
-        run: |
-          bundle config set --global https://rubygems.pkg.github.com/lukebemishprojects x-oauth-basic:${{ secrets.GITHUB_TOKEN }}
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
+        env:
+          BUNDLE_HTTPS://RUBYGEMS__PKG__GITHUB__COM/LUKEBEMISHPROJECTS/: "x-oauth-basic:${{ secrets.GITHUB_TOKEN }}"
         with:
           ruby-version: '4.0'
           bundler-cache: true
