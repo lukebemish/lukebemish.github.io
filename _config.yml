@@ -44,11 +44,18 @@ social:
     icon_category: solid
     url: mailto:lukebemish@lukebemish.dev
     me: true
+    class: u-email
   - icon:	github
     url:	https://github.com/lukebemish
     me: true
   - icon: mastodon
     url: https://mastodon.social/@lukebemish
+    me: true
+  - icon: bluesky
+    url: https://bsky.app/profile/lukebemish.dev
+    me: true
+  - icon: pixelfed
+    url: https://gram.social/lukebemish
     me: true
   - icon: linkedin
     url: https://www.linkedin.com/in/luke-bemish/
