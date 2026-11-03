@@ -6,7 +6,6 @@ source "https://rubygems.org" do
     gem 'jekyll-octicons'
     gem 'jekyll-redirect-from'
     gem 'jekyll-sitemap'
-    gem 'jekyll-feed'
     gem 'jekyll-gist'
     gem 'jekyll-paginate'
     gem 'jekyll-seo-tag'

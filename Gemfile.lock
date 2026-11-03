@@ -257,7 +257,6 @@ DEPENDENCIES
   jekyll-avatar!
   jekyll-commonmark-ghpages!
   jekyll-default-layout!
-  jekyll-feed!
   jekyll-gist!
   jekyll-include-cache!
   jekyll-mentions!
