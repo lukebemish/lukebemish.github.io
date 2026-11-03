@@ -10,7 +10,7 @@
 {% elsif site.authors[page.author]?.gravatar %}
 <img class="author-image u-logo" src="https://gravatar.com/avatar/{{ site.authors[page.author].gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
 {% endif %}
-<strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{% if site.authors[page.author]?.permalink %}<a class="link-plain p-name u-url" href="{{ site.authors[page.author].permalink }}">{{ page.author }}</a>{% else %}{{ page.author }}{% endif %}</strong>
+<strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{% if site.authors[page.author]?.permalink %}<a class="link-plain p-name u-url" rel="author" href="{{ site.authors[page.author].permalink }}">{{ page.author }}</a>{% else %}{{ page.author }}{% endif %}</strong>
 </div>
 on
 <time class="dt-published" datetime="{{ page.date | date_to_xmlschema | slice: 0, 10 }}">{{ page.date | date_to_string }}</time>
