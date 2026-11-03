@@ -1,5 +1,7 @@
 GEM
   specs:
+    jekyll-feed (0.18.0)
+      jekyll (>= 3.7, < 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -104,8 +106,6 @@ GEM
       jekyll-commonmark (~> 1)
     jekyll-default-layout (0.2.1)
       jekyll (>= 3.0, < 5.0)
-    jekyll-feed (0.18.0)
-      jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
       octokit (~> 4.2)
     jekyll-include-cache (0.3.1)
@@ -315,7 +315,7 @@ CHECKSUMS
   jekyll-commonmark (1.3.1) sha256=a7cca98825df844801e1096f916751faec906ab25ce3733d828e5053a6197996
   jekyll-commonmark-ghpages (0.1.0) sha256=94e532a21db8c8ff3fa1dc5aa38e1ca4a87ba2176702d8042fbd0c10eb24996a
   jekyll-default-layout (0.2.1) sha256=358af41f82ce8da7abcdec820831afaea990f1a31eda8c5e6b393b4e1a2485fd
-  jekyll-feed (0.18.0) sha256=8e6829f455b8764a8fa1bbb198d0ebb3525128dacc6ffe9d15f4df7388bc3647
+  jekyll-feed (0.18.0)
   jekyll-gist (1.5.0) sha256=495b6483552a3e2975a2752964ea7acddd545bc6e13ce2be15a50cec8d4c9f0f
   jekyll-include-cache (0.3.1) sha256=4ba9c00b05247245420656dc313826ca761c4e0b13c0976ad298225f9f7792d3
   jekyll-mentions (1.6.0) sha256=39e801024cb6f2319b3f78a29999d0068ef5f68bc5202b8757d5354fef311ed9
