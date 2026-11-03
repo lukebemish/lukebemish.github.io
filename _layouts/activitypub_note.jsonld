@@ -9,7 +9,7 @@
     {% if target_page.title %}"name": {{ target_page.title | strip | jsonify }},{% endif %}
     "published": "{{ target_page.date | date_to_xmlschema }}",
     "url": "{{ page.linked_post | absolute_url }}",
-    "summary": {%capture excerptcontent%}{% include impl/alert-notes.html html=target_page.excerpt bodySuffix=" " %}{% endcapture
+    "summary": {%capture excerptcontent%}{% include process-content.html content=target_page.excerpt %}{% endcapture
           %}{{ excerptcontent | strip | jsonify }},
     "to": [
         "https://www.w3.org/ns/activitystreams#Public"
@@ -26,6 +26,6 @@
         {%- endfor -%}
         {%- endif %}
     ],
-    "content": {%capture postcontent%}{% include impl/alert-notes.html html=target_page.content bodySuffix=" " %}{% endcapture
+    "content": {%capture postcontent%}{% include process-content.html content=target_page.content %}{% endcapture
           %}{{ postcontent | strip | jsonify }}
 }
