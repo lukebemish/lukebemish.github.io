@@ -48,23 +48,29 @@ social:
   - icon:	github
     url:	https://github.com/lukebemish
     me: true
+    class: u-url
   - icon: mastodon
     url: https://mastodon.social/@lukebemish
     me: true
+    class: u-url
   - icon: bluesky
     url: https://bsky.app/profile/lukebemish.dev
     me: true
+    class: u-url
   - icon: pixelfed
     url: https://gram.social/lukebemish
     me: true
+    class: u-url
   - icon: linkedin
     url: https://www.linkedin.com/in/luke-bemish/
     me: true
+    class: u-url
     share_url: https://www.linkedin.com/sharing/share-offsite/?
     share_link: url=
   - icon: orcid
     url: https://orcid.org/0009-0006-8214-8050
     me: true
+    class: u-url
   - icon: rss
     icon_category: solid
     me: false
