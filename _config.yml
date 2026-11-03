@@ -39,6 +39,7 @@ authors:
   "Luke Bemish":
     gravatar: lukebemish@lukebemish.dev
     fediverse: "@lukebemish@mastodon.social"
+    permalink: https://lukebemish.dev/
 social:
   - icon: envelope
     icon_category: solid
@@ -81,6 +82,8 @@ webp:
   nested: true
 
 unified-docs-theme:
-  nav_pages:
+  options:
+    exclude-post-title: true
+  nav-pages:
     - page: index.html
       title: Home

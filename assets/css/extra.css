@@ -31,8 +31,10 @@
     }
 
     .author-big-row-contents {
-        flex: 1 1 min(450px, 100cqw - var(--spacing) * 4);
-        min-width: min(450px, 100cqw - var(--spacing) * 4);
+        @container root (min-width: 0) {
+            flex: 1 1 min(450px, 100cqw - var(--spacing) * 4);
+            min-width: min(450px, 100cqw - var(--spacing) * 4);
+        }
 
         h1.actually-first {
             margin-top: 0px;
@@ -40,8 +42,8 @@
     }
 }
 
-.category-links {
-    margin-top: 0.5rem;
+.category-links.category-links.category-links.category-links {
+    margin-top: 0;
 }
 
 .share-header {
@@ -72,8 +74,11 @@
     gap: 1rem;
 }
 
-a.no-ext-link[href*="://"]::after {
-    width: 0;
-    height: 0;
-    clip-path: none;
+a.link-plain {
+    &[href*="://"]::after {
+        width: 0;
+        height: 0;
+        clip-path: none;
+    }
+    color: currentColor;
 }

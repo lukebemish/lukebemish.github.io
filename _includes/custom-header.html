@@ -1,14 +1,19 @@
 {%- if page.collection == "posts" -%}
+{% if page.title %}
+<h1 class="p-name">{{ page.title | escape }}</h1>
+{% endif %}
 {% if site.author_image or site.authors[page.author]?.gravatar %}
 <div class="author-row">
+<div class="p-author h-card" style="display: contents;">
 {% if site.author_image %}
-<div class="author-image" style="background-image: url({{ site.author_image | prepend: site.baseurl }})"></div>
+<div class="author-image u-logo" style="background-image: url({{ site.author_image | prepend: site.baseurl }})"></div>
 {% elsif site.authors[page.author]?.gravatar %}
-<img class="author-image" src="https://gravatar.com/avatar/{{ site.authors[page.author].gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
+<img class="author-image u-logo" src="https://gravatar.com/avatar/{{ site.authors[page.author].gravatar | gravatar_hash }}?d=identicon" alt="{{ page.author }}" />
 {% endif %}
-<strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{ page.author }}</strong>
+<strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{% if site.authors[page.author]?.permalink %}<a class="link-plain p-name u-url" href="{{ site.authors[page.author].permalink }}">{{ page.author }}</a>{% else %}{{ page.author }}{% endif %}</strong>
+</div>
 on
-<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+<time class="dt-published" datetime="{{ page.date | date_to_xmlschema | slice: 0, 10 }}">{{ page.date | date_to_string }}</time>
 <span class="share-header">
 {% for social in site.social %}
     {% if social.share_url != null %}
@@ -27,7 +32,10 @@ on
 {% for category in page.categories -%}
 {%- unless firstcategory %} | {% endunless -%}
 {%- assign firstcategory = false -%}
-<a class="alt-link category-link" href="/categories/{{ category | slugify }}.html">{{category}}</a>
+<a class="alt-link category-link p-category" href="/categories/{{ category | slugify }}.html">{{category}}</a>
 {%- endfor %}
 </small></div>
+
+<span style="display: none;" class="p-summary" aria-hidden="true" tabindex="-1">{{ page.excerpt | strip_html | truncatewords: 50 }}</span>
+<a style="display: none;" class="u-uid u-url" aria-hidden="true" tabindex="-1" href="{{ page.url | absolute_url }}"></a>
 {%- endif -%}
