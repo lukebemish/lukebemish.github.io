@@ -6,16 +6,16 @@ author: Luke Bemish
 
 <header class="h-card column-center text-center">
     <div class="author-big-row">
-        <picture class="u-logo">
+        <picture>
             <source srcset="{{site.url}}/assets/img/profile.webp" type="image/webp">
             <source srcset="{{site.url}}/assets/img/profile.png" type="image/png">
-            <img class="author-big-image" src="{{site.url}}/assets/img/profile.png" alt="Luke's profile photo"
+            <img class="author-big-image u-logo" src="{{site.url}}/assets/img/profile.png" alt="Luke's profile photo"
                 width="150px"
                 style="aspect-ratio: 400/400">
         </picture>
         <div class="content-block author-big-row-contents">
             <h1 class="actually-first"><a class="p-name u-url no-ext-link" href="{{ page.url | absolute_url }}" rel="me">{{ site.title }}</a></h1>
-            <p>{{ site.description }}</p>
+            <p class="p-note">{{ site.description }}</p>
             <div class="custom-links">
                 {% for social in site.social %}
                     {% if social.url %}
