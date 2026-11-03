@@ -234,7 +234,7 @@ GEM
 GEM
   remote: https://rubygems.pkg.github.com/lukebemishprojects/
   specs:
-    unified-docs-theme (0.1.15)
+    unified-docs-theme (0.1.16)
       jekyll (~> 4.4)
       jekyll-feed (~> 0.9)
       jekyll-paginate (~> 1.1)

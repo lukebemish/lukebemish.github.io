@@ -42,7 +42,7 @@
       <published>{{ post.date | date_to_xmlschema }}</published>
       <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
       <id>{{ post.id | absolute_url | xml_escape }}</id>
-      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{%capture postcontent%}{% include impl/alert-notes.html html=post.content bodySuffix=" " %}{% endcapture
+      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{%capture postcontent%}{% include process-content.html content=post.content %}{% endcapture
           %}{{ postcontent | strip | replace: cdata_end_token, cdata_end_token_escaped }}]]></content>
 
       {% assign post_author = post.author | default: post.authors[0] | default: site.author %}
