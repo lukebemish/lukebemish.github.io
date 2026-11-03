@@ -9,3 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <meta name="fediverse:creator" content="{{site.authors[page.author].fediverse}}">
 {%- endif -%}
 <link rel="stylesheet" href="{{ '/assets/css/extra.css' | relative_url }}">
+{% if page.activitypub-note -%}
+<link rel="alternate" type="application/activity+json" href="{{ page.activitypub-note.url | absolute_url }}" />
+{%- endif %}

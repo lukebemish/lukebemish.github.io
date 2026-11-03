@@ -1,0 +1,31 @@
+---
+---
+{%- assign target_page = site.posts | where: "url", page.linked_post | first -%}
+{
+    "@context": "https://www.w3.org/ns/activitystreams",
+    "type": "Article",
+    "id": "{{ page.url | absolute_url }}",
+    "attributedTo": "{{ site.activity-pub.actor }}",
+    {% if target_page.title %}"name": {{ target_page.title | strip | jsonify }},{% endif %}
+    "published": "{{ target_page.date | date_to_xmlschema }}",
+    "url": "{{ page.linked_post | absolute_url }}",
+    "summary": {%capture excerptcontent%}{% include impl/alert-notes.html html=target_page.excerpt bodySuffix=" " %}{% endcapture
+          %}{{ excerptcontent | strip | jsonify }},
+    "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+    ],
+    "tag": [
+        {% if target_page.categories -%}
+        {%- for category in target_page.categories -%}
+        {%- assign category-slug = category | slugify -%}
+        {
+            "type": "Hashtag",
+            "href": "{{ "/categories/" | append: category-slug | append: ".html" | absolute_url }}",
+            "name": "#{{ category-slug }}"
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+        {%- endif %}
+    ],
+    "content": {%capture postcontent%}{% include impl/alert-notes.html html=target_page.content bodySuffix=" " %}{% endcapture
+          %}{{ postcontent | strip | jsonify }}
+}

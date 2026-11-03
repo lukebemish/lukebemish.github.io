@@ -87,3 +87,6 @@ unified-docs-theme:
   nav-pages:
     - page: index.html
       title: Home
+
+activity-pub:
+  actor: https://blog.lukebemish.dev/blog
