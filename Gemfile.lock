@@ -1,12 +1,7 @@
 GEM
-  specs:
-    jekyll-feed (0.18.0)
-      jekyll (>= 3.7, < 5.0)
-
-GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (8.1.4)
+    activesupport (8.1.4.1)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.3.1)
@@ -106,9 +101,11 @@ GEM
       jekyll-commonmark (~> 1)
     jekyll-default-layout (0.2.1)
       jekyll (>= 3.0, < 5.0)
+    jekyll-feed (0.18.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
       octokit (~> 4.2)
-    jekyll-include-cache (0.3.1)
+    jekyll-include-cache (0.3.2)
       jekyll (>= 3.7, < 5.0)
     jekyll-mentions (1.6.0)
       html-pipeline (~> 2.3)
@@ -116,16 +113,16 @@ GEM
     jekyll-octicons (19.42.0)
       jekyll (>= 3.6, < 5.0)
       octicons (= 19.42.0)
-    jekyll-optional-front-matter (0.3.4)
+    jekyll-optional-front-matter (0.3.5)
       jekyll (>= 3.0, < 5.0)
     jekyll-paginate (1.1.0)
-    jekyll-readme-index (0.5.1)
+    jekyll-readme-index (0.6.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-redirect-from (0.17.0)
       jekyll (>= 3.3, < 5.0)
-    jekyll-relative-links (0.9.1)
+    jekyll-relative-links (0.9.2)
       jekyll (>= 3.3, < 5.0)
-    jekyll-remote-theme (0.6.2)
+    jekyll-remote-theme (0.6.3)
       addressable (~> 2.0)
       jekyll (>= 3.5, < 5.0)
       jekyll-sass-converter (>= 1.0, < 4.0, != 2.0.0)
@@ -137,7 +134,7 @@ GEM
       jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-titles-from-headings (0.5.7)
+    jekyll-titles-from-headings (0.6.0)
       jekyll (>= 3.3, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
@@ -202,21 +199,21 @@ GEM
       i18n
     rubyzip (3.7.0)
     safe_yaml (1.0.5)
-    sass-embedded (1.107.1-aarch64-linux-gnu)
+    sass-embedded (1.108.0-aarch64-linux-gnu)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-aarch64-linux-musl)
+    sass-embedded (1.108.0-aarch64-linux-musl)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-arm-linux-gnueabihf)
+    sass-embedded (1.108.0-arm-linux-gnueabihf)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-arm-linux-musleabihf)
+    sass-embedded (1.108.0-arm-linux-musleabihf)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-arm64-darwin)
+    sass-embedded (1.108.0-arm64-darwin)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-x86_64-darwin)
+    sass-embedded (1.108.0-x86_64-darwin)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-x86_64-linux-gnu)
+    sass-embedded (1.108.0-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
-    sass-embedded (1.107.1-x86_64-linux-musl)
+    sass-embedded (1.108.0-x86_64-linux-musl)
       google-protobuf (~> 4.31)
     sawyer (0.9.3)
       addressable (>= 2.3.5)
@@ -253,30 +250,30 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  jekyll (~> 4.4.0)!
-  jekyll-avatar!
-  jekyll-commonmark-ghpages!
-  jekyll-default-layout!
-  jekyll-gist!
-  jekyll-include-cache!
-  jekyll-mentions!
-  jekyll-octicons!
-  jekyll-optional-front-matter!
-  jekyll-paginate!
-  jekyll-readme-index!
-  jekyll-redirect-from!
-  jekyll-relative-links!
-  jekyll-remote-theme!
-  jekyll-seo-tag!
-  jekyll-sitemap!
-  jekyll-titles-from-headings!
-  jekyll-webp!
-  jemoji!
-  nokogiri!
+  jekyll (~> 4.4.0)
+  jekyll-avatar
+  jekyll-commonmark-ghpages
+  jekyll-default-layout
+  jekyll-gist
+  jekyll-include-cache
+  jekyll-mentions
+  jekyll-octicons
+  jekyll-optional-front-matter
+  jekyll-paginate
+  jekyll-readme-index
+  jekyll-redirect-from
+  jekyll-relative-links
+  jekyll-remote-theme
+  jekyll-seo-tag
+  jekyll-sitemap
+  jekyll-titles-from-headings
+  jekyll-webp
+  jemoji
+  nokogiri
   unified-docs-theme!
 
 CHECKSUMS
-  activesupport (8.1.4) sha256=891dd3fe43c4fc8391934b237b1189bb1f661c932a84a840043db9d46a4e80df
+  activesupport (8.1.4.1) sha256=16ac4f341ca65c85a1fcdb8ac73f68891aae9e3c4a6f9c3a27daed8b00017ed7
   addressable (2.9.2) sha256=9117c7e7d6ee07230e75ce41fb9401ae55354dc654fcd0e862ba41d539e9a610
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bigdecimal (4.1.3) sha256=61ebe1e5e559bdc3cc6f2c0ee7f427321fc838f59611c294356eb04d6e21cf66
@@ -316,21 +313,21 @@ CHECKSUMS
   jekyll-commonmark (1.3.1) sha256=a7cca98825df844801e1096f916751faec906ab25ce3733d828e5053a6197996
   jekyll-commonmark-ghpages (0.1.0) sha256=94e532a21db8c8ff3fa1dc5aa38e1ca4a87ba2176702d8042fbd0c10eb24996a
   jekyll-default-layout (0.2.1) sha256=358af41f82ce8da7abcdec820831afaea990f1a31eda8c5e6b393b4e1a2485fd
-  jekyll-feed (0.18.0)
+  jekyll-feed (0.18.0) sha256=8e6829f455b8764a8fa1bbb198d0ebb3525128dacc6ffe9d15f4df7388bc3647
   jekyll-gist (1.5.0) sha256=495b6483552a3e2975a2752964ea7acddd545bc6e13ce2be15a50cec8d4c9f0f
-  jekyll-include-cache (0.3.1) sha256=4ba9c00b05247245420656dc313826ca761c4e0b13c0976ad298225f9f7792d3
+  jekyll-include-cache (0.3.2) sha256=43ede7567207b9aaeee3c4eed211b54bf52e35dd8acdfb2c78f4e4964ba06c2d
   jekyll-mentions (1.6.0) sha256=39e801024cb6f2319b3f78a29999d0068ef5f68bc5202b8757d5354fef311ed9
   jekyll-octicons (19.42.0) sha256=806086ace315fe321b5617962a66875c36c7fabf60348a3fd26ec85886f67d77
-  jekyll-optional-front-matter (0.3.4) sha256=aa1c34bbc2abde4c5a9f039ff1b7bbd04c563def9e792d76bace8fd907dd0f2d
+  jekyll-optional-front-matter (0.3.5) sha256=10ee0a3e3383c1eb51af67c928a5e4c93c3db8d7c0c984e33b1010d4d768ecb1
   jekyll-paginate (1.1.0) sha256=880aadf4b02529a93541d508c5cbb744f014cbfc071d0263a31f25ec9066eb64
-  jekyll-readme-index (0.5.1) sha256=760f8d28930d55601558faf82f4a2a7738afe132e25f16cd386e0020afd2fe2c
+  jekyll-readme-index (0.6.0) sha256=6c66945426d6caafd02fab80e909f4d4098f4ed9ee6ce5a62e42f052384195c3
   jekyll-redirect-from (0.17.0) sha256=703dab0428b20bb5d550ab83d3c28b65bb5ecc0f734c5e61ee680de391b3e897
-  jekyll-relative-links (0.9.1) sha256=6d5d70578c669ef9ee4c67f617d91497e0506fe5c1a059e484a900e18efb202e
-  jekyll-remote-theme (0.6.2) sha256=f3c423c38652aaf87ecf5ee08b20812c265e8395d9d6ef91cef7f49033263afa
+  jekyll-relative-links (0.9.2) sha256=9a1e7c58465f4fc63827a6d59ff95e1386b5f6b7683b633ec0230a144859c38c
+  jekyll-remote-theme (0.6.3) sha256=a0f717528f801999b00949d0ff6a830d3e7b8f415a5a3da176aa76c15985eabe
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
   jekyll-seo-tag (2.9.1) sha256=ed5c757a091048b6ef9109f856f84a29beaeb70f531ba5775a5e92129a28093e
   jekyll-sitemap (1.4.0) sha256=0de08c5debc185ea5a8f980e1025c7cd3f8e0c35c8b6ef592f15c46235cf4218
-  jekyll-titles-from-headings (0.5.7) sha256=927437000037da3433e0d4c8f509c56be811ab123ea70548acb914df0dd7a33d
+  jekyll-titles-from-headings (0.6.0) sha256=568f5f262712f0c4629110c05e95d14f52de9fc613554c8fe9e2e8ba71d761ae
   jekyll-watch (2.2.1) sha256=bc44ed43f5e0a552836245a54dbff3ea7421ecc2856707e8a1ee203a8387a7e1
   jekyll-webp (1.0.0) sha256=d6a859651ea50dae575e131b046a266cf9cf2a0fb14b576c5c4b4010191fb41f
   jemoji (0.13.0) sha256=5d4c3e8e2cbbb2b73997c31294f6f70c94e4d4fade039373e86835bcf5529e7c
@@ -367,14 +364,14 @@ CHECKSUMS
   ruby-enum (0.9.0) sha256=77a09954184714a9ca0baf2dde91a38b96a8f0f834f1984c7a1e52df2148dadf
   rubyzip (3.7.0) sha256=65c19294da75297a939006f3516deacc33185fbd721ff1954f7a231db6d3e121
   safe_yaml (1.0.5) sha256=a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848
-  sass-embedded (1.107.1-aarch64-linux-gnu) sha256=3fe4d8ad54a6e3853bcee847421922c5795787150b197e1b220b7c13ad2ba8d8
-  sass-embedded (1.107.1-aarch64-linux-musl) sha256=91aad281a76b8a3d4716d96976de8c2a8086057e3c63f6d1894345d60b36b35a
-  sass-embedded (1.107.1-arm-linux-gnueabihf) sha256=77d30f611d51aa7fe538ea5909702a1fd3a8be0266acab8a83aad7b2053bc340
-  sass-embedded (1.107.1-arm-linux-musleabihf) sha256=adcaf365ffd49877d9a969e077f304bbbb4fdaa9545ef0f0515fc1808ae8be83
-  sass-embedded (1.107.1-arm64-darwin) sha256=e03cac5e65cd10b49ce9fc5791a391aadd002cda729034420441a984a13a13dc
-  sass-embedded (1.107.1-x86_64-darwin) sha256=7484cb8bbaa57b644e92237ef53ef6a2b8c6d5a2a996cbc6eb7f35c9b616e30e
-  sass-embedded (1.107.1-x86_64-linux-gnu) sha256=b882ac9eb6ae7370cbaab46707bd38a4a6c4445aa6008506d8cddad47368b29a
-  sass-embedded (1.107.1-x86_64-linux-musl) sha256=fe85a7fd55877766725fe83f4f3335865504cb2862ebf86498c04a3322aa85e4
+  sass-embedded (1.108.0-aarch64-linux-gnu) sha256=e9cb36b758c58604802a414b9745528c71f9be32372d7b53149a6c228b77e90d
+  sass-embedded (1.108.0-aarch64-linux-musl) sha256=ae4025f5505ab9e4c88f075f5a0e007d7cd0d9fe459a75931452bc1ed5923496
+  sass-embedded (1.108.0-arm-linux-gnueabihf) sha256=24a5eff0b63dfaee238bd699d3c9896d0ae9b6c588f22c204430de6b124c0b55
+  sass-embedded (1.108.0-arm-linux-musleabihf) sha256=86b745910cbdb4c7ce0c32d2fa734bdf6a7abb11c71c6ba77589346ffbe110d6
+  sass-embedded (1.108.0-arm64-darwin) sha256=505375e0e26b442777c2b5fa9c8487da6d65fbec0910c186b77390d591250a88
+  sass-embedded (1.108.0-x86_64-darwin) sha256=7776cd437211c0996f707ee969b74de3423c1b2a9589dcf4fdd6451046c03ef4
+  sass-embedded (1.108.0-x86_64-linux-gnu) sha256=5af2f228bd6afdfbb2a091cc0fb8fe1eb91f227155b5f037fe40d14a56739459
+  sass-embedded (1.108.0-x86_64-linux-musl) sha256=711e56f7d6fb319a91da39b0e916726fe2a30f0107b782908eebe54afafe2616
   sawyer (0.9.3) sha256=0d0f19298408047037638639fe62f4794483fb04320269169bd41af2bdcf5e41
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   terminal-table (3.0.2) sha256=f951b6af5f3e00203fb290a669e0a85c5dd5b051b3b023392ccfd67ba5abae91
