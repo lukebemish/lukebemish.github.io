@@ -10,7 +10,7 @@
     "published": "{{ target_page.date | date_to_xmlschema }}",
     "url": "{{ page.linked_post | absolute_url }}",
     "summary": {%capture excerptcontent%}{% include process-content.html content=target_page.excerpt %}{% endcapture
-          %}{{ excerptcontent | strip | jsonify }},
+          %}{{ excerptcontent | absolute_urls | strip | jsonify }},
     "to": [
         "https://www.w3.org/ns/activitystreams#Public"
     ],
@@ -27,5 +27,5 @@
         {%- endif %}
     ],
     "content": {%capture postcontent%}{% include process-content.html content=target_page.content %}{% endcapture
-          %}{{ postcontent | strip | jsonify }}
+          %}{{ postcontent | absolute_urls | strip | jsonify }}
 }

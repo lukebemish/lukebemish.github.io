@@ -1,0 +1,14 @@
+---
+---
+{
+    "objects": [
+        {% assign _sorted_posts = site.posts | reverse %}
+        {% for post in _sorted_posts -%}
+        {% assign path_parts = post.url | absolute_url | split: '.' %}
+        {% assign new_ext = 'jsonld' %}
+        {% assign name_without_ext = path_parts | pop | join: '.' %}
+        "{{ name_without_ext | append: '.' | append: new_ext }}"
+        {%- unless forloop.last %},{% endunless -%}
+        {%- endfor %}
+    ]
+}

@@ -89,4 +89,4 @@ unified-docs-theme:
       title: Home
 
 activity-pub:
-  actor: https://blog.lukebemish.dev/blog
+  actor: https://blog.lukebemish.dev/@blog
