@@ -272,6 +272,7 @@ DEPENDENCIES
   jekyll-titles-from-headings!
   jekyll-webp!
   jemoji!
+  nokogiri!
   unified-docs-theme!
 
 CHECKSUMS
