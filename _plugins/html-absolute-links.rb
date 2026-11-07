@@ -2,6 +2,25 @@ require 'nokogiri'
 
 module Jekyll
     module AbsoluteUrls
+        def minify_html(input)
+            fragment = Nokogiri::HTML5::DocumentFragment.parse(input)
+            protected_elements = %w[pre textarea code script style]
+            processor = ->(text_node) do
+                minified_text = text_node.content.gsub(/[\r\n\s]+/, ' ')
+                text_node.content = minified_text
+                if (minified_text.match?(/\A[\r\n\s]+\z/))
+                    text_node.remove()
+                end
+            end
+            xpath_query = ".//text()[not(ancestor::#{protected_elements.join(' or ancestor::')})]"
+            fragment.xpath(xpath_query).each(&processor)
+            xpath_query = "./text()[not(ancestor::#{protected_elements.join(' or ancestor::')})]"
+            fragment.xpath(xpath_query).each(&processor)
+
+            # 3. Serialize back to HTML string, stripping out extra indentation
+            fragment.to_html(indent: 0).strip
+        end
+
         def absolute_urls(input)
             fragment = Nokogiri::HTML5::DocumentFragment.parse(input)
 
