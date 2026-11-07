@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 {%- endif -%}
 <link rel="stylesheet" href="{{ '/assets/css/extra.css' | relative_url }}">
 {% if page.activitypub-note -%}
-<link rel="alternate" type="application/activity+json" href="{{ page.activitypub-note.url | absolute_url }}" />
+<link rel="alternate" type="application/activity+json" href="{{ site.activity-pub.actor }}/objects{{ page.activitypub-note.url }}" />
 {%- endif %}
 {% if page.url == "/" -%}
 <link rel="alternate" type="application/activity+json" href="{{ site.activity-pub.actor }}" />

@@ -9,7 +9,7 @@
         }
     ],
     "type": "Article",
-    "id": "{{ page.url | absolute_url }}",
+    "id": "{{ site.activity-pub.actor }}/objects{{ page.url }}",
     "attributedTo": "{{ site.activity-pub.actor }}",
     {% if target_page.title %}"name": {{ target_page.title | strip | jsonify }},{% endif %}
     "published": "{{ target_page.date | date_to_xmlschema }}",
