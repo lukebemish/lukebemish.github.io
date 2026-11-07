@@ -4,10 +4,14 @@
     "objects": [
         {% assign _sorted_posts = site.posts | reverse %}
         {% for post in _sorted_posts -%}
-        {% assign path_parts = post.url | absolute_url | split: '.' %}
+        {% assign path_parts = post.url | split: '.' %}
         {% assign new_ext = 'jsonld' %}
         {% assign name_without_ext = path_parts | pop | join: '.' %}
-        "{{ name_without_ext | append: '.' | append: new_ext }}"
+        {% assign name_length = name_without_ext | size | minus: 1 %}
+        {
+            "id": "{{ name_without_ext | slice: 1, name_length | append: '.' | append: new_ext }}",
+            "url": "{{ name_without_ext | append: '.' | append: new_ext | absolute_url }}"
+        }
         {%- unless forloop.last %},{% endunless -%}
         {%- endfor %}
     ]
