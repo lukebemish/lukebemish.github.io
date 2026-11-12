@@ -2,12 +2,6 @@
 ---
 {%- assign target_page = site.posts | where: "url", page.linked_post | first -%}
 {
-    "@context": [
-        "https://www.w3.org/ns/activitystreams",
-        {
-            "Hashtag": "as:Hashtag"
-        }
-    ],
     "type": "Article",
     "id": "{{ site.activity-pub.actor }}/objects{{ page.url }}",
     "attributedTo": "{{ site.activity-pub.actor }}",
