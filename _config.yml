@@ -38,7 +38,7 @@ gist:
 authors:
   "Luke Bemish":
     gravatar: lukebemish@lukebemish.dev
-    fediverse: "@lukebemish@mastodon.social"
+    fediverse: "@blog@blog.lukebemish.dev"
     permalink: https://lukebemish.dev/
 social:
   - icon: envelope
