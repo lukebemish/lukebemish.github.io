@@ -13,5 +13,5 @@ document.addEventListener("DOMContentLoaded", () => {
 <link rel="alternate" type="application/activity+json" href="{{ site.activity-pub.actor }}/objects{{ page.activitypub-note.url }}" />
 {%- endif %}
 {% if page.url == "/" -%}
-<link rel="alternate" type="application/activity+json" href="{{ site.activity-pub.actor }}" />
+<link rel="alternate me" type="application/activity+json" href="{{ site.activity-pub.actor }}" />
 {%- endif %}
