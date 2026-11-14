@@ -14,12 +14,7 @@ module ATProtocolSupport
 
                 usec_since_epoch = page_date.to_i * 1_000_000 + page_date.usec
 
-                post_url = post.url.to_s
-                if post_url.end_with? "/"
-                    post_url = post_url.chop
-                end
-                post_id = File.dirname(post_url) + "/" + File.basename(post_url, ".*") + '.jsonld'
-                post_id = post_id[1..]
+                post_id = post.url.to_s
 
                 tid_int = (
                     usec_since_epoch << 10

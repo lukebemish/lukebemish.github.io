@@ -10,6 +10,7 @@
         {% assign name_length = name_without_ext | size | minus: 1 %}
         {
             "id": "{{ name_without_ext | slice: 1, name_length | append: '.' | append: new_ext }}",
+            "rel": "{{ post.url }}",
             "url": "{{ name_without_ext | append: '.' | append: new_ext | absolute_url }}"
         }
         {%- unless forloop.last %},{% endunless -%}
