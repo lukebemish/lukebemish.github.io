@@ -1,0 +1,3 @@
+---
+---
+at://{{ site.atproto.did }}/site.standard.publication/{{ site.atproto.publication-rkey }}

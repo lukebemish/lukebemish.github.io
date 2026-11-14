@@ -8,6 +8,7 @@ domain: "lukebemish.dev"
 show_downloads: false
 author: Luke Bemish
 paginate: 5
+timezone: America/New_York
 
 collections:
   category:
@@ -29,6 +30,8 @@ kramdown:
   syntax_highlighter: rouge
 exclude:
   - CNAME
+include:
+  - ".well-known"
 sass:
   quiet_deps: true
   silence_deprecations: [import]
@@ -90,3 +93,7 @@ unified-docs-theme:
 
 activity-pub:
   actor: https://blog.lukebemish.dev/@blog
+
+atproto:
+  did: did:plc:qpzmsyzy6ebjntrcdjzkuvsx
+  publication-rkey: 222ch4crgecen

@@ -227,6 +227,7 @@ GEM
     unicode-display_width (2.6.0)
     uri (1.1.2)
     webrick (1.9.2)
+    xxhash (0.7.0)
 
 GEM
   remote: https://rubygems.pkg.github.com/lukebemishprojects/
@@ -271,6 +272,7 @@ DEPENDENCIES
   jemoji
   nokogiri
   unified-docs-theme!
+  xxhash
 
 CHECKSUMS
   activesupport (8.1.4.1) sha256=16ac4f341ca65c85a1fcdb8ac73f68891aae9e3c4a6f9c3a27daed8b00017ed7
@@ -381,6 +383,7 @@ CHECKSUMS
   unified-docs-theme (0.1.18) sha256=4909ac0b60c499075397fe3cf63340371be1cbb6fe1bf1dba48082afbaadeea1
   uri (1.1.2) sha256=89292e98eabbef6248b0a0ed5e7e398e152f83f17560023a6d94a7f492b169fb
   webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
+  xxhash (0.7.0) sha256=1177e65232a4ede2f8022b0d062cc4bb25b4aaf32e81657e8140e0bff7b49fc3
 
 BUNDLED WITH
   4.0.22
