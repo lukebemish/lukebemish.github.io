@@ -19,11 +19,12 @@ module ATProtocolSupport
                     post_url = post_url.chop
                 end
                 post_id = File.dirname(post_url) + "/" + File.basename(post_url, ".*") + '.jsonld'
+                post_id = post_id[1..]
 
                 tid_int = (
                     usec_since_epoch << 10
                 ) | (
-                    XXhash.xxh32(post_id, 0) & 0x3FF
+                    XXhash.xxh32(post_id.encode('UTF-8'), 0) & 0x3FF
                 )
                 tid_int = 0x1FFFFFFFFFFFFF & tid_int
                 chars = []
