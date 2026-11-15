@@ -8,7 +8,10 @@
     {% if target_page.title %}"name": {{ target_page.title | strip | jsonify }},{% endif %}
     "published": "{{ target_page.date | date_to_xmlschema }}",
     "url": "{{ page.linked_post | absolute_url }}",
-    "summary": {%capture excerptcontent%}{% include process-content.html content=target_page.excerpt %}{% endcapture
+    {% assign post_summary = target_page.description -%}
+    {% if post_summary %}{% assign post_summary = post_summary | escape -%}{% endif -%}
+    {% unless post_summary %}{% assign post_summary = target_page.excerpt -%}{% endunless -%}
+    "summary": {%capture excerptcontent%}{% include process-content.html content=post_summary %}{% endcapture
           %}{{ excerptcontent | absolute_urls | minify_html | jsonify }},
     "to": [
         "https://www.w3.org/ns/activitystreams#Public"

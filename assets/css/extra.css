@@ -7,8 +7,12 @@
     margin-right: 0.25lh;
 }
 
-.author-row {
-    margin-top: 0.5rem;
+.author-row.author-row.author-row.author-row {
+    margin-top: calc(var(--spacing) * 2);
+}
+
+.summary-text {
+    font-style: italic;
 }
 
 .author-big-image {
@@ -44,6 +48,7 @@
 
 .category-links.category-links.category-links.category-links {
     margin-top: 0;
+    margin-bottom: calc(var(--spacing) * 8);
 }
 
 .share-header {
