@@ -5,9 +5,7 @@ author: Luke Bemish
 title: Gallery
 ---
 <main>
-<div id="gallery-pictures" class="content-img-width gallery-pictures">
-    <div id="gallery-pictures-probe"></div>
-</div>
+<div id="gallery-pictures" class="content-img-width gallery-pictures"></div>
 <div id="scroll-sentinel"></div>
 <div id="loading-text" class="column-center text-center" style="display: none;">
     <p>Loading more images...</p>
@@ -21,7 +19,6 @@ title: Gallery
     }
 
     const gallery = document.getElementById("gallery-pictures");
-    const galleryColumnProbe = document.getElementById("gallery-pictures-probe");
     const sentinel = document.getElementById('scroll-sentinel');
     const loadingText = document.getElementById('loading-text');
 
@@ -61,8 +58,6 @@ title: Gallery
                 }
             }
 
-            let initialWidth = galleryColumnProbe.getBoundingClientRect().width;
-
             const fragment = document.createDocumentFragment();
 
             for (const image of output) {
@@ -77,8 +72,8 @@ title: Gallery
                     child.alt = image.alt;
                 }
                 child.src = cdn_url;
-                child.width = initialWidth;
-                child.height = initialWidth * image.aspectRatio.height / image.aspectRatio.width;
+                child.width = image.aspectRatio.width;
+                child.height = image.aspectRatio.height;
                 child.style.aspectRatio = `${image.aspectRatio.width} / ${image.aspectRatio.height}`
                 link.append(child);
                 fragment.append(link);
