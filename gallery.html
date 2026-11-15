@@ -1,0 +1,111 @@
+---
+layout: default
+id: gallery
+author: Luke Bemish
+title: Gallery
+---
+<main>
+<div id="gallery-pictures" class="content-img-width gallery-pictures">
+    <div id="gallery-pictures-probe"></div>
+</div>
+<div id="scroll-sentinel"></div>
+<div id="loading-text" class="column-center text-center" style="display: none;">
+    <p>Loading more images...</p>
+</div>
+</main>
+<script type="module">
+    import GridLanesPolyfill from "https://cdn.jsdelivr.net/npm/grid-lanes-polyfill@latest/grid-lanes-polyfill.js";
+
+    if (!GridLanesPolyfill.supportsGridLanes()) {
+        GridLanesPolyfill.init({ force: true });
+    }
+
+    const gallery = document.getElementById("gallery-pictures");
+    const galleryColumnProbe = document.getElementById("gallery-pictures-probe");
+    const sentinel = document.getElementById('scroll-sentinel');
+    const loadingText = document.getElementById('loading-text');
+
+    let cursor = null;
+    let isout = false;
+    let isLoading = false;
+
+    const getMoreImages = async () => {
+        if (isLoading || isout) return;
+        isLoading = true;
+        loadingText.style.display = 'block';
+
+        try {
+            const cursor_field = cursor === null ? "" : "&cursor="+cursor;
+            const found = await window.fetch(
+                "{{ site.atproto.pds }}xrpc/com.atproto.repo.listRecords?repo={{ site.atproto.did }}&collection=app.zeens.postMeta&limit=1"+cursor_field
+            );
+            const body = await found.json();
+            cursor = body.cursor;
+            if (body.cursor === undefined) {
+                isout = true;
+            }
+            const output = [];
+            for (const record of body.records) {
+                const post = record.value.post;
+                const parts = post.split("/");
+                const did = parts[2];
+                const collection = parts[3];
+                const rkey = parts.slice(4).join("/");
+
+                const post_record = await (await window.fetch(
+                    `{{ site.atproto.pds }}xrpc/com.atproto.repo.getRecord?repo=${did}&collection=${collection}&rkey=${rkey}`
+                )).json();
+                for (const image of post_record.value.embed.images) {
+                    image.link_url = `https://zeens.app/profile/{{ site.atproto.did }}/post/${rkey}`;
+                    output.push(image);
+                }
+            }
+
+            let initialWidth = galleryColumnProbe.getBoundingClientRect().width;
+
+            const fragment = document.createDocumentFragment();
+
+            for (const image of output) {
+                const cdn_url = `https://cdn.bsky.app/img/feed_fullsize/plain/{{ site.atproto.did }}/${image.image.ref["$link"]}`
+                const link = document.createElement("a");
+                link.classList.add("link-plain");
+                link.rel = "noopener noreferrer";
+                link.target = "_blank";
+                link.href = image.link_url;
+                const child = document.createElement("img");
+                if (image.alt !== undefined) {
+                    child.alt = image.alt;
+                }
+                child.src = cdn_url;
+                child.width = initialWidth;
+                child.height = initialWidth * image.aspectRatio.height / image.aspectRatio.width;
+                child.style.aspectRatio = `${image.aspectRatio.width} / ${image.aspectRatio.height}`
+                link.append(child);
+                fragment.append(link);
+            }
+
+            gallery.append(fragment);
+        } catch (error) {
+            console.error("Issue fetching images: ", error);
+            isout = true;
+        } finally {
+            loadingText.style.display = "none";
+            isLoading = false;
+        }
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries[0].isIntersecting && !isout) {
+                getMoreImages();
+            }
+        },
+        {
+            root: null,
+            rootMargin: '300px',
+            threshold: 0.1
+        }
+    );
+
+    observer.observe(sentinel);
+</script>

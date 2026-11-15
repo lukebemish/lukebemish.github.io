@@ -90,10 +90,13 @@ unified-docs-theme:
   nav-pages:
     - page: index.html
       title: Home
+    - page: gallery.html
+      title: Gallery
 
 activity-pub:
   actor: https://blog.lukebemish.dev/@blog
 
 atproto:
+  pds: https://pds.lukebemish.dev/
   did: did:plc:qpzmsyzy6ebjntrcdjzkuvsx
   publication-rkey: 222ch4crgecen
