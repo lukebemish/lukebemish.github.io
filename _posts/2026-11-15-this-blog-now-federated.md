@@ -38,8 +38,8 @@ source code that generates it [here](https://github.com/lukebemish/lukebemish.gi
 overengineered Liquid templates, and some terrible shenanigans with custom Jekyll plugins to throw together the HTML that
 GitHub serves. The whole thing is then behind Cloudflare's CDN.
 
-Federation is handled by a separate service running under `blog.lukebemish.dev`. The Jekyll build of this site artifacts that
-this service can watch, to see changes to post content or new posts, and then it does
+Federation is handled by a separate service running under `blog.lukebemish.dev`. The Jekyll build of this site creates artifacts that
+this service can watch, to see changes to post content or new posts, and then this service does
 all the active bits necessary for federation. Since I've been trying to learn more Rust lately anyhow, I decided
 to write this service in Rust using axum for HTTP routing; the source code is available [here](https://github.com/lukebemish/federated-blog).
 
