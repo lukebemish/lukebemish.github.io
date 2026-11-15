@@ -6,7 +6,7 @@ title: Gallery
 ---
 <main>
 <div id="gallery-pictures" class="content-img-width gallery-pictures"></div>
-<div id="scroll-sentinel"></div>
+<div id="scroll-sentinel" style="min-height: 1px; min-width: 1px; margin-top: 0px;"></div>
 <div id="loading-text" class="column-center text-center" style="display: none;">
     <p>Loading more images...</p>
 </div>
@@ -89,15 +89,20 @@ title: Gallery
         }
     };
 
+    let isAdding = false;
     const observer = new IntersectionObserver(
-        (entries) => {
-            if (entries[0].isIntersecting && !isout) {
-                getMoreImages();
+        async (entries) => {
+            if (!isAdding && !isout && entries[entries.length - 1].isIntersecting) {
+                observer.unobserve(sentinel);
+                isAdding = true;
+                await getMoreImages();
+                isAdding = false;
+                observer.observe(sentinel);
             }
         },
         {
             root: null,
-            rootMargin: '300px',
+            rootMargin: '500px',
             threshold: 0.1
         }
     );
