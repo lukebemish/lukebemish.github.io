@@ -61,6 +61,8 @@ social:
     url: https://bsky.app/profile/lukebemish.dev
     me: true
     class: u-url
+    share_url: https://bsky.app/intent/compose/?
+    share_link: text=
   - icon: pixelfed
     url: https://gram.social/lukebemish
     me: true
