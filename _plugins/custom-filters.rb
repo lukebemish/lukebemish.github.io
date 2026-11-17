@@ -37,13 +37,6 @@ module CustomFilters
         fragment.to_html.strip
     end
 
-    def hashtagify(string)
-        return nil if string.nil?
-        string.strip!
-        string.gsub!(%r!\s+!i, "")
-        return string
-    end
-
     private def absolute_item(baseurl, url_attr, item)
         src = item.attr(url_attr)
 
