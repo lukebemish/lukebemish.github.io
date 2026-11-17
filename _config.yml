@@ -17,6 +17,10 @@ collections:
 
 theme: unified-docs-theme
 
+liquid:
+  error-mode: strict
+  strict_filters: true
+
 markdown: kramdown
 permalink: /:year/:month/:day/:title:output_ext
 kramdown:

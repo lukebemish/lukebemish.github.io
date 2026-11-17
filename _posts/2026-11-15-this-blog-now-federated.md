@@ -110,7 +110,7 @@ quite extensible. Each record in your "repository" (the account stored on a PDS)
 a schema describing the form that data takes. JSON can be validated against lexica; there might be one lexicon for Bluesky
 posts, one for Zeens posts, etc.; things interoperate insofar as they know about and read or write the same lexica.
 
-The major lexicon for long-form content seems to be the [standard.site](https://standard.site/) lexica: `site.standard.publication`
+The major lexica for long-form content seems to be the [standard.site](https://standard.site/) lexica: `site.standard.publication`
 for a website and then `site.standard.document` for a post. If your tool writes those to your repository, anything that knows
 about them can see your posts. For instance, my blog posts will show up on [leaflet.pub](https://leaflet.pub/), which
 uses these lexica, despite not writing them through that tool.
