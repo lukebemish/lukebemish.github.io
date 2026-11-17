@@ -20,7 +20,8 @@ author: Luke Bemish
                 {% for social in site.social %}
                     {% if social.url %}
                         <a class="alt-link icon-{{ social.icon }} page-social-link{% if social.class %} {{ social.class }}{% endif%}" href="{{ social.url }}"{% if social.desc %} title="{{ social.desc }}"{% endif %}{% if social.me %} rel="me"{% endif %}>
-                        <i class="fa-{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %} fa-{{ social.icon }} fa-fw"></i>
+                            {%- capture _fa_category -%}{% if social.icon_category %}{{ social.icon_category }}{% else %}brands{% endif %}{%- endcapture %}
+                            {% fontawesome _fa_category, social.icon %}
                         </a>
                     {% endif %}
                 {% endfor %}
