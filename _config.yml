@@ -7,7 +7,7 @@ url: "https://lukebemish.dev"
 domain: "lukebemish.dev"
 show_downloads: false
 author: Luke Bemish
-paginate: 5
+paginate: 10
 timezone: America/New_York
 
 collections:
