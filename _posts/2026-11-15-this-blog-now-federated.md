@@ -135,7 +135,7 @@ Of course, the tradeoff with this approach is that an application can't just sto
 sense for it in its own database; it needs to figure out how to represent it nicely with a lexicon. And relying on a single
 PDS implementation from Bluesky, which does seem to be the major implementation, has its own disadvantages; you're stuck with
 it and if it's weird it may not be easy to debug. Currently, I can't view any of my notifications from the Bluesky website
-or app, though I can from elsewhere, due to an API method the website calls on me PDS raising an internal server error with no
+or app, though I can from elsewhere, due to an API method the website calls on my PDS raising an internal server error with no
 useful reported stack trace.
 
 This was a fun project, and I'm hoping to play around with AT Protocol and/or ActivityPub more in the future; among other
