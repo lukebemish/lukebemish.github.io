@@ -12,7 +12,7 @@ title: Gallery
 </div>
 </main>
 <script type="module">
-    import GridLanesPolyfill from "https://cdn.jsdelivr.net/npm/grid-lanes-polyfill@latest/grid-lanes-polyfill.js";
+    import GridLanesPolyfill from '{% bundleremote "https://cdn.jsdelivr.net/npm/grid-lanes-polyfill@1.1.1/grid-lanes-polyfill.js" %}';
 
     if (!GridLanesPolyfill.supportsGridLanes()) {
         GridLanesPolyfill.init({ force: true });

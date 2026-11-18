@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4.0"
+gem "mime-types", "~> 3.7"
 gem "nokogiri"
 gem "xxhash"
 
@@ -30,4 +31,3 @@ source 'https://rubygems.pkg.github.com/lukebemishprojects' do
     gem 'unified-docs-theme'
   end
 end
-
