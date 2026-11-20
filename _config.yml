@@ -95,7 +95,7 @@ unified-docs-theme:
     exclude-post-title: true
   nav-pages:
     - page: index.html
-      title: Home
+      title: Blog
     - page: gallery.html
       title: Gallery
 
