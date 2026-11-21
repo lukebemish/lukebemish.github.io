@@ -254,42 +254,91 @@ const formatPost = async (did, key, post) => {
     elementsOut.push(plainText(bytes.slice(byteAt, bytes.length)));
 
     if (post.value.embed !== undefined) {
-        const embed = post.value.embed;
-        if (embed.$type == "app.bsky.embed.record") {
-            if (embed.record.uri !== undefined) {
-                // View record
-                const regex = /^at:\/\/(?<did>[^/]+)\/(?<collection>[^/]+)\/(?<rkey>[^/]+)$/;
-                const match = embed.record.uri.match(regex);
-                const embed_did = match.groups["did"];
-                const embed_collection = match.groups["collection"];
-                const embed_rkey = match.groups["rkey"];
-                if (collections.includes(embed_collection)) {
-                    const inner_post = await getRecord(embed_did, embed_collection, embed_rkey);
-                    const rendered_inner = await formatPost(embed_did, embed_collection, inner_post);
-                    rendered_inner.classList.add("embed");
-                    elementsOut.push(rendered_inner);
+        const embeds = [post.value.embed];
+        while (embeds.length > 0) {
+            const embed = embeds.shift();
+            if (embed.$type === "app.bsky.embed.record") {
+                if (embed.record.uri !== undefined) {
+                    // View record
+                    const regex = /^at:\/\/(?<did>[^/]+)\/(?<collection>[^/]+)\/(?<rkey>[^/]+)$/;
+                    const match = embed.record.uri.match(regex);
+                    const embed_did = match.groups["did"];
+                    const embed_collection = match.groups["collection"];
+                    const embed_rkey = match.groups["rkey"];
+                    if (collections.includes(embed_collection)) {
+                        const inner_post = await getRecord(embed_did, embed_collection, embed_rkey);
+                        const rendered_inner = await formatPost(embed_did, embed_collection, inner_post);
+                        rendered_inner.classList.add("embed");
+                        elementsOut.push(rendered_inner);
+                    }
                 }
+            } else if (embed.$type === "app.bsky.embed.images" || embed.$type === "app.bsky.embed.gallery") {
+                const image_row = document.createElement("div");
+                for (const image of embed.images ?? embed.items) {
+                    const img = document.createElement("img");
+                    const ref = image.image.ref.$link;
+                    img.setAttribute("src", `https://cdn.bsky.app/img/feed_fullsize/plain/${did}/${ref}`);
+                    if (image.aspectRatio !== undefined) {
+                        img.style.aspectRatio = `${image.aspectRatio.width}/${image.aspectRatio.height}`;
+                    }
+                    if (image.alt !== undefined) {
+                        img.alt = image.alt;
+                    }
+                    if (embed.images.length > 1) {
+                        img.style.width = "auto";
+                        img.style.height = "50cqw";
+                    }
+                    image_row.appendChild(img);
+                }
+                image_row.classList.add("image-row")
+                elementsOut.push(image_row);
+            } else if (embed.$type === "app.bsky.embed.recordWithMedia") {
+                embeds.push(embed.media);
+                embeds.push(embed.record);
+            } else if (embed.$type === "app.bsky.embed.external") {
+                const embed_uri = embed.external.uri;
+                const embed_thumb = embed.external.thumb?.ref?.$link;
+                const embed_title = embed.external.title;
+                const embed_desc = embed.external.description;
+
+                const posterBox = document.createElement("div");
+                posterBox.classList.add("embed");
+                const poster = document.createElement("a");
+                poster.classList.add("link-hover");
+                poster.target = "_blank";
+                poster.href = embed_uri;
+                posterBox.appendChild(poster);
+                poster.style.display = "flex";
+                poster.style.gap = "calc(var(--spacing) * 4)";
+                poster.style.flexDirection = "row";
+                poster.style.alignItems = "center";
+
+                if (embed_thumb !== undefined) {
+                    const img = document.createElement("img");
+                    img.setAttribute("src", `https://cdn.bsky.app/img/feed_fullsize/plain/${did}/${embed_thumb}`);
+                    img.style.height = "200px";
+                    img.style.objectFit = "contain";
+                    poster.appendChild(img);
+                }
+
+                const details = document.createElement("div");
+                details.style.display = "flex";
+                details.style.flexDirection = "column";
+
+                const titleSpan = document.createElement("h2");
+                titleSpan.textContent = embed_title;
+                details.appendChild(titleSpan);
+
+                const descSpan = document.createElement("span");
+                descSpan.textContent = embed_desc;
+                details.appendChild(descSpan);
+
+                details.style.flexGrow = "1";
+
+                poster.appendChild(details);
+
+                elementsOut.push(posterBox);
             }
-        } else if (embed.$type == "app.bsky.embed.images") {
-            const image_row = document.createElement("div");
-            for (const image of embed.images) {
-                const img = document.createElement("img");
-                const ref = image.image.ref.$link;
-                img.setAttribute("src", `https://cdn.bsky.app/img/feed_fullsize/plain/${did}/${ref}`);
-                if (image.aspectRatio !== undefined) {
-                    img.style.aspectRatio = `${image.aspectRatio.width}/${image.aspectRatio.height}`;
-                }
-                if (image.alt !== undefined) {
-                    img.alt = image.alt;
-                }
-                if (embed.images.length > 1) {
-                    img.style.width = "auto";
-                    img.style.height = "50cqw";
-                }
-                image_row.appendChild(img);
-            }
-            image_row.classList.add("image-row")
-            elementsOut.push(image_row);
         }
     }
 

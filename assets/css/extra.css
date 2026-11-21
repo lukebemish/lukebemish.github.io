@@ -89,6 +89,19 @@ a.link-plain {
     color: currentColor;
 }
 
+a.link-hover {
+    &[href*="://"]::after {
+        width: 0;
+        height: 0;
+        clip-path: none;
+        content: none;
+    }
+    color: currentColor;
+    &:hover, &:active {
+        color: var(--color-foreground-link);
+    }
+}
+
 .content-img-width {
     margin-inline: calc(var(--spacing) * -2);
     width: calc(100% + (calc(var(--spacing) * 4)));
