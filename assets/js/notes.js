@@ -150,7 +150,7 @@ const formatPost = async (did, key, post) => {
         const poster = document.createElement("div");
         poster.style.display = "flex";
         poster.style.gap = "calc(var(--spacing) * 4)";
-        poster.style.flex = "0 0 row";
+        poster.style.flexDirection = "row";
         poster.appendChild(img);
         elementsOut.push(poster);
 
@@ -159,7 +159,8 @@ const formatPost = async (did, key, post) => {
         const credit = post.value.mainCredit;
 
         const details = document.createElement("div");
-        poster.style.flex = "0 0 col";
+        details.style.display = "flex";
+        details.style.flexDirection = "row";
         const when = document.createElement("time");
         when.setAttribute("datetime", date.toISOString());
         when.textContent = date.toLocaleDateString(undefined, {
@@ -180,7 +181,6 @@ const formatPost = async (did, key, post) => {
         details.appendChild(creditSpan);
 
         details.style.flexGrow = "1";
-        details.style.gap = "calc(var(--spacing) * 4)";
 
         poster.appendChild(details);
         poster.classList.add("review-poster");

@@ -4,12 +4,16 @@ id: index
 author: Luke Bemish
 ---
 <template id="post-header">
-    <div style="margin-bottom: calc(var(--spacing) * 2);">
+    <div style="margin-bottom: calc(var(--spacing) * 2); display: flex; flex-direction: row; flex-wrap: wrap; row-gap: calc(var(--spacing) * 2);">
+        <div>
         <img class="author-image post-header-image">
         <strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="link-plain post-header-name"></a></strong>
         on
         <time class="post-header-time"></time>
-        <span class="post-header-view" style="float: right"><a class="post-header-view-link link-plain" style target="_blank"><span class="post-header-view-symbol"></span>View on <span class="post-header-view-name"></span></a></span>
+        </div><div class="expand"></div>
+        <div>
+        <span class="post-header-view"><a class="post-header-view-link link-plain" style target="_blank"><span class="post-header-view-symbol"></span>View on <span class="post-header-view-name"></span></a></span>
+        </div>
     </div>
 </template>
 <main>
