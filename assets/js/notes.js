@@ -160,7 +160,7 @@ const formatPost = async (did, key, post) => {
 
         const details = document.createElement("div");
         details.style.display = "flex";
-        details.style.flexDirection = "row";
+        details.style.flexDirection = "col";
         const when = document.createElement("time");
         when.setAttribute("datetime", date.toISOString());
         when.textContent = date.toLocaleDateString(undefined, {
