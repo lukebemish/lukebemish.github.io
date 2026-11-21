@@ -1,0 +1,22 @@
+---
+layout: default
+id: index
+author: Luke Bemish
+---
+<template id="post-header">
+    <div style="margin-bottom: calc(var(--spacing) * 2);">
+        <img class="author-image post-header-image">
+        <strong class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="link-plain post-header-name"></a></strong>
+        on
+        <time class="post-header-time"></time>
+        <span class="post-header-view" style="float: right"><a class="post-header-view-link link-plain" style target="_blank"><span class="post-header-view-symbol"></span>View on <span class="post-header-view-name"></span></a></span>
+    </div>
+</template>
+<main>
+<div id="posts-holder"></div>
+<div id="scroll-sentinel" style="min-height: 1px; min-width: 1px; margin-top: 0px;"></div>
+<div id="loading-text" class="column-center text-center" style="display: none;">
+    <p>Loading more posts...</p>
+</div>
+</main>
+<script type="module" src="{{ site.url }}/assets/js/notes.js"></script>

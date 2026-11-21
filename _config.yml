@@ -99,6 +99,8 @@ unified-docs-theme:
       title: Blog
     - page: gallery.html
       title: Gallery
+    - page: notes.html
+      title: Notes
 
 activity-pub:
   actor: https://blog.lukebemish.dev/@blog
