@@ -186,7 +186,6 @@ const formatPost = async (did, key, post) => {
         poster.classList.add("review-poster");
 
         let rating = post.value.rating;
-        rating = 5;
 
         const star = `{% fontawesome "solid", "star" %}`;
         const half_star = `{% fontawesome "solid", "star-half-stroke" %}`;
