@@ -151,6 +151,7 @@ const formatPost = async (did, key, post) => {
         poster.style.display = "flex";
         poster.style.gap = "calc(var(--spacing) * 4)";
         poster.style.flexDirection = "row";
+        poster.style.alignItems = "center";
         poster.appendChild(img);
         elementsOut.push(poster);
 
@@ -160,7 +161,7 @@ const formatPost = async (did, key, post) => {
 
         const details = document.createElement("div");
         details.style.display = "flex";
-        details.style.flexDirection = "col";
+        details.style.flexDirection = "column";
         const when = document.createElement("time");
         when.setAttribute("datetime", date.toISOString());
         when.textContent = date.toLocaleDateString(undefined, {
